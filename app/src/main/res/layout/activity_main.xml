@@ -36,25 +36,16 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="26dp"
             android:hint="Password"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:background="@color/teal_200"/>
 
         <Button
-            android:layout_marginTop="40dp"
-            android:id="@+id/button"
-            android:layout_width="267dp"
-            android:layout_height="89dp"
-            android:layout_marginLeft="70dp"
-            android:text="sign up" />
-
-        <Button
-            android:layout_marginTop="10dp"
             android:id="@+id/button2"
             android:layout_width="267dp"
-            android:layout_height="89dp"
+            android:layout_height="95dp"
             android:layout_marginLeft="70dp"
-            android:text="login"
-            android:onClick="changeActivity"
-            />
+            android:layout_marginTop="90dp"
+            android:onClick="loginUser"
+            android:text="login" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
