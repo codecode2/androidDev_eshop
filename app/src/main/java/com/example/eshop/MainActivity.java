@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private sharedPreferenceConfig sharedPreferenceConfig;
 
     EditText UserName, UserPassword;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +35,30 @@ public class MainActivity extends AppCompatActivity {
     public void loginUser(View view) {
         String varusername = UserName.getText().toString();
         String varuserpassword = UserPassword.getText().toString();
-        if (varusername.equals(getResources().getString(R.string.user_name))&& varuserpassword.equals((getResources().getString(R.string.user_password)))){
-            startActivity(new Intent(this, WelcomePage.class));
-            sharedPreferenceConfig.writeLoginStatus(true);
-            finish();
-        } else {
+        boolean  flag=false;
+        Resources res = getResources();
+        String[] stringUsernames= res.getStringArray(R.array.all_strings_username);
+        Resources res2 = getResources();
+        String[] stringPasswords = res2.getStringArray(R.array.all_strings_passwords);
+
+for(int i=0; i<stringUsernames.length; i++) {
+
+    if (varusername.equals(stringUsernames[i].toString()) || varuserpassword.equals(stringPasswords[i].toString())) {
+        flag=true;
+        startActivity(new Intent(this, WelcomePage.class));
+        sharedPreferenceConfig.writeLoginStatus(true);
+        finish();
+             }
+        }
+
+        if(flag==false)
+        {
             Toast.makeText(this, "Login failed! Try again ...", Toast.LENGTH_LONG).show();
             UserName.setText("");
             UserPassword.setText("");
         }
+
+
     }
 }
 

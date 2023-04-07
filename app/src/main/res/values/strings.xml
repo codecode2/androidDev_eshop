@@ -1,9 +1,24 @@
 <resources>
     <string name="app_name">eshop</string>
-    <string name="user_name">margaret</string>
-    <string name="user_password">blue</string>
+
     <string name="login_preference">advhci.ihu.gr.loginappsharedpreferences_loginPreference</string>
     <string name="login_status">advhci.ihu.gr.loginappsharedpreferences_loginStatus</string>
-    <string name="user_name2">Alkis</string>
+    <string name="user_name">margaret</string>
+    <string name="user_password">blue</string>
+    <string name="user_name2">alkis</string>
     <string name="user_password2">miro</string>
+
+<string-array name="all_strings_username">
+    <item>@string/user_name</item>
+    <item>@string/user_name2</item>
+
+
+     </string-array>
+
+    <string-array name="all_strings_passwords">
+
+        <item>@string/user_password</item>
+        <item>@string/user_password2</item>
+
+    </string-array>
 </resources>
