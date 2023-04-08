@@ -2,16 +2,13 @@ package com.example.eshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-public class MainActivity extends AppCompatActivity {
+public class IntroPage extends AppCompatActivity {
 
     private sharedPreferenceConfig sharedPreferenceConfig;
 
@@ -21,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.intropage);
         sharedPreferenceConfig = new sharedPreferenceConfig(getApplicationContext());
         UserName = findViewById(R.id.nameLogin);
         UserPassword = findViewById(R.id.loginPassword);
