@@ -18,12 +18,19 @@ import com.google.android.material.navigation.NavigationView;
 
 public class WelcomePage extends AppCompatActivity {
 
+    public  WelcomePage(){}
+
+
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     private sharedPreferenceConfig sharedPreferenceConfig;
 
     @SuppressLint("MissingInflatedId")
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

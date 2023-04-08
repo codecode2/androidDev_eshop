@@ -8,17 +8,17 @@
     <string name="user_name2">alkis</string>
     <string name="user_password2">miro</string>
 
-<string-array name="all_strings_username">
-    <item>@string/user_name</item>
-    <item>@string/user_name2</item>
 
 
-     </string-array>
+
+    <string-array name="all_strings_username">
+        <item>@string/user_name</item>
+        <item>@string/user_name2</item>
+    </string-array>
 
     <string-array name="all_strings_passwords">
-
         <item>@string/user_password</item>
         <item>@string/user_password2</item>
-
     </string-array>
+
 </resources>
