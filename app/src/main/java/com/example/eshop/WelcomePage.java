@@ -14,9 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+
 import com.google.android.material.navigation.NavigationView;
 
-public class WelcomePage extends AppCompatActivity {
+public class WelcomePage extends AppCompatActivity  {
 
     public  WelcomePage(){}
 
@@ -24,6 +25,7 @@ public class WelcomePage extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
     private sharedPreferenceConfig sharedPreferenceConfig;
 
     @SuppressLint("MissingInflatedId")
@@ -34,7 +36,12 @@ public class WelcomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_page);
+        setContentView(R.layout.container_fragments);
+
+        welcomeFragment welcomefragmentIntro = new welcomeFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
+
 
         sharedPreferenceConfig = new sharedPreferenceConfig(getApplicationContext());
 
@@ -44,6 +51,10 @@ public class WelcomePage extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
+        menuUploadFragment fragmentUpload = new menuUploadFragment();
+
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -51,15 +62,21 @@ public class WelcomePage extends AppCompatActivity {
                     case R.id.myhome:
                         //   menuItem.setChecked(true);
                         displayMessage("Home");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
                         drawerLayout.closeDrawers();
+
+
+
+
                         return true;
                     case R.id.upload:
                         //   menuItem.setChecked(true);
                         displayMessage("upload");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentUpload).commit();
                         drawerLayout.closeDrawers();
-                        return true;
+
+                          return true;
                     case R.id.find:
-                        //  menuItem.setChecked(true);
                         displayMessage("find something");
                         drawerLayout.closeDrawers();
                         return true;
@@ -98,8 +115,6 @@ public class WelcomePage extends AppCompatActivity {
 
 
 
-
-
-    }
+}
 
 
