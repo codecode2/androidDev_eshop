@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class welcomeFragment extends Fragment {
+public class MenuUploadFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -16,7 +16,7 @@ public class welcomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public welcomeFragment() {
+    public MenuUploadFragment() {
         // Required empty public constructor
     }
 
@@ -41,7 +41,7 @@ public class welcomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.welcome_page, container, false);
+        View view = inflater.inflate(R.layout.menuuploadfragment, container, false);
 
         Bundle bundle = getArguments();
 

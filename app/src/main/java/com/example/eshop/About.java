@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class menuUploadFragment extends Fragment {
+public class About extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -18,12 +16,12 @@ public class menuUploadFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public menuUploadFragment() {
+    public About() {
         // Required empty public constructor
     }
 
-    public static menuUploadFragment newInstance(String param1, String param2) {
-        menuUploadFragment fragment = new menuUploadFragment();
+    public static MenuUploadFragment newInstance(String param1, String param2) {
+        MenuUploadFragment fragment = new MenuUploadFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -43,7 +41,7 @@ public class menuUploadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.menuuploadfragment, container, false);
+        View view = inflater.inflate(R.layout.about, container, false);
 
         Bundle bundle = getArguments();
 

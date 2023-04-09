@@ -51,10 +51,12 @@ public class WelcomePage extends AppCompatActivity  {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
-        menuUploadFragment fragmentUpload = new menuUploadFragment();
+        MenuUploadFragment fragmentUpload = new MenuUploadFragment();
 
-
-
+        Searching search = new Searching();
+        About about = new About();
+        Products product = new Products();
+        Supliers suplier =new Supliers();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -75,14 +77,30 @@ public class WelcomePage extends AppCompatActivity  {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentUpload).commit();
                         drawerLayout.closeDrawers();
 
-                          return true;
+                    case R.id.products:
+                        //  menuItem.setChecked(true);
+                        displayMessage("Products ...");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, product).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.suppliers:
+                        //  menuItem.setChecked(true);
+                        displayMessage("Suppliers ...");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, suplier).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+
                     case R.id.find:
                         displayMessage("find something");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, search).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.about:
                         //  menuItem.setChecked(true);
                         displayMessage("Info ...");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, about).commit();
                         drawerLayout.closeDrawers();
                         return true;
 
