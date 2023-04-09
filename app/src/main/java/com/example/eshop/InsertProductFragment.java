@@ -65,7 +65,7 @@ public class InsertProductFragment extends Fragment {
                     product.setProducts_name(Var_productname);
                     product.setProduct_description(Var_product_description);
                     product.setPrice(Var_productprice);
-                    WelcomePageActivity.eshopDatabase.myDao().insertProduct(product);
+                    WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
                     Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     String message = e.getMessage();

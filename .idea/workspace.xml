@@ -56,6 +56,11 @@
     "com.google.services.firebase.aqiPopupShown": "true",
     "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop/app/src/main/res/layout",
     "settings.editor.selected.configurable": "vcs.Git"
+  },
+  "keyToStringList": {
+    "com.android.tools.idea.sqlite.queryhistory": [
+      "select * from products;"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">

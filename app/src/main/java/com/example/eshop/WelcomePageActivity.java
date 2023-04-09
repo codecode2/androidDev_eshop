@@ -22,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 public class WelcomePageActivity extends AppCompatActivity  {
 
     public static FragmentManager fragmentManager;
-    public static eshopDatabase eshopDatabase;
+    public static eshopDatabase myAppDatabase;
 
     public WelcomePageActivity(){}
 
@@ -32,6 +32,7 @@ public class WelcomePageActivity extends AppCompatActivity  {
     NavigationView navigationView;
 
     private sharedPreferenceConfig sharedPreferenceConfig;
+
 
     @SuppressLint("MissingInflatedId")
 
@@ -43,6 +44,8 @@ public class WelcomePageActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_fragments);
 
+
+        myAppDatabase = Room.databaseBuilder(getApplicationContext(),eshopDatabase.class,"reservesBD").allowMainThreadQueries().build();
 
 
         welcomeFragment welcomefragmentIntro = new welcomeFragment();
