@@ -39,7 +39,7 @@
 
 
         <item
-            android:id="@+id/about"
+            android:id="@+id/aboutFragment"
             android:title="About"
            >
 
