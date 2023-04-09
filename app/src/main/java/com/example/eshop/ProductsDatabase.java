@@ -17,7 +17,7 @@ public class ProductsDatabase {
     private String product_description;
 
     @ColumnInfo (name = "price")
-    private String price;
+    private int price;
 
     public int getId() {
         return id;
@@ -43,11 +43,11 @@ public class ProductsDatabase {
         this.product_description = product_description;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

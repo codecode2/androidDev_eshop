@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.room.Room;
 
 
 import com.google.android.material.navigation.NavigationView;
@@ -21,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 public class WelcomePageActivity extends AppCompatActivity  {
 
     public static FragmentManager fragmentManager;
-    public static MyAppDatabase myAppDatabase;
+    public static eshopDatabase eshopDatabase;
 
     public WelcomePageActivity(){}
 
@@ -41,6 +42,8 @@ public class WelcomePageActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_fragments);
+
+
 
         welcomeFragment welcomefragmentIntro = new welcomeFragment();
 

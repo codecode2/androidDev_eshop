@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface MyDao {
     @Insert
-    public void addUser(ProductsDatabase ProductsDatabase);
+    public void insertProduct(ProductsDatabase productsdatabase);
 
     @Query("select * from products")
     public List<ProductsDatabase> getProducts();

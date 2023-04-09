@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 
 
 @Entity (tableName = "supplies",
-        primaryKeys = {"id"},
+        primaryKeys = {"id_supplies"},
         foreignKeys = {
                 @ForeignKey(entity = SupplierDatabase.class,
                         parentColumns = "supplier_id",
@@ -28,7 +28,6 @@ import androidx.room.PrimaryKey;
 
 public class SuppliesDatabase {
     @ColumnInfo(name="id_supplies")
-    @PrimaryKey
     private int id;
 
     @ColumnInfo( name = "id_supplier_foreign")
@@ -37,6 +36,27 @@ public class SuppliesDatabase {
     @ColumnInfo( name = "id_product_foreign")
     private int  id_prod;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getId_sup() {
+        return id_sup;
+    }
+
+    public void setId_sup(int id_sup) {
+        this.id_sup = id_sup;
+    }
+
+    public int getId_prod() {
+        return id_prod;
+    }
+
+    public void setId_prod(int id_prod) {
+        this.id_prod = id_prod;
+    }
 }
