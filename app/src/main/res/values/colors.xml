@@ -11,4 +11,7 @@
     <color name="toolbar_color">#16D5F7</color>
     <color name="welcomeText">#AE8BFFDE</color>
     <color name="search">#7769FFD4</color>
+    <color name="about_title">#9F61BEE8</color>
+    <color name="searchingColors">#83C3FF9A</color>
+    <color name="insertColors">#6A15BBB5</color>
 </resources>
