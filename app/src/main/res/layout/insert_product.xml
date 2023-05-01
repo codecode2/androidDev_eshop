@@ -10,9 +10,10 @@
         <TextView
             android:id="@+id/insert_title"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="62dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="24dp"
+            android:background="@drawable/rounded_textboxes2"
             android:text="INSERT PRODUCT"
             android:textAlignment="center"
             android:textSize="24dp"
@@ -29,7 +30,7 @@
             android:ems="10"
             android:inputType="number"
             android:hint="insert id"
-            android:background="@color/insertColors"
+            android:background="@drawable/rounded_textboxes2"
             android:height="22dp"
             />
 
@@ -38,7 +39,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Insert name"
-            android:background="@color/insertColors"
+            android:background="@drawable/rounded_textboxes2"
             android:layout_width="350dp"
             android:layout_height="70dp"
             android:layout_marginLeft="30dp"
@@ -53,7 +54,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="Insert description"
-            android:background="@color/insertColors"/>
+            android:background="@drawable/rounded_textboxes2"/>
 
         <EditText
             android:id="@+id/product_price"
@@ -64,15 +65,15 @@
             android:ems="10"
             android:inputType="number"
             android:hint="Insert price"
-            android:background="@color/insertColors"/>
+            android:background="@drawable/rounded_textboxes2"/>
 
         <Button
             android:id="@+id/insertProductSubmitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="145dp"
+            android:layout_height="69dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
-            android:background="@color/searchingColors"
+            android:background="@drawable/rounded_button"
             android:text="Submit" />
 
 </LinearLayout>

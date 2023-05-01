@@ -64,46 +64,46 @@ public class WelcomePageActivity extends AppCompatActivity  {
                 switch (menuItem.getItemId()){
                     case R.id.myhome:
                         //   menuItem.setChecked(true);
-                        displayMessage("Home");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.upload:
                         //   menuItem.setChecked(true);
-                        displayMessage("upload");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentUpload).commit();
                         drawerLayout.closeDrawers();
 
                     case R.id.products:
                         //  menuItem.setChecked(true);
-                        displayMessage("Products ...");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, product).commit();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.suppliers:
                         //  menuItem.setChecked(true);
-                        displayMessage("Suppliers ...");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, suplier).commit();
                         drawerLayout.closeDrawers();
                         return true;
 
 
                     case R.id.find:
-                        displayMessage("find something");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, search).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.aboutFragment:
                         //  menuItem.setChecked(true);
-                        displayMessage("Info ...");
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, aboutFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.logout:
                         //  menuItem.setChecked(true);
-                        displayMessage("Logout");
+
                         drawerLayout.closeDrawers();
                         logoutUser(null);
                         return true;

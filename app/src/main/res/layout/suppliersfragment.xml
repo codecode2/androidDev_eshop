@@ -11,7 +11,7 @@
         android:layout_height="92dp"
         android:text="Supliers"
         android:textSize="40dp"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="77dp" />
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="49dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

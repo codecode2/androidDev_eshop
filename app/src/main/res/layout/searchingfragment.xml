@@ -41,12 +41,11 @@
         <ImageView
             android:id="@+id/SearchImage"
             android:layout_width="64dp"
-            android:layout_height="126dp"
+            android:layout_height="124dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="60dp"
-            app:srcCompat="@android:drawable/ic_menu_search"
             android:background="@drawable/rounded_textboxes"
-            />
+            app:srcCompat="@android:drawable/ic_menu_search" />
 
         <EditText
             android:id="@+id/searchInput"
