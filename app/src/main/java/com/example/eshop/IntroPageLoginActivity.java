@@ -27,8 +27,6 @@ public class IntroPageLoginActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
     public void loginUser(View view) {
         String varusername = UserName.getText().toString();
         String varuserpassword = UserPassword.getText().toString();
@@ -40,21 +38,19 @@ public class IntroPageLoginActivity extends AppCompatActivity {
 
 for(int i=0; i<stringUsernames.length; i++) {
 
-    if (varusername.equals(stringUsernames[i].toString()) || varuserpassword.equals(stringPasswords[i].toString())) {
+    if (varusername.equals(stringUsernames[i].toString()) && varuserpassword.equals(stringPasswords[i].toString())) {
         flag=true;
         startActivity(new Intent(this, WelcomePageActivity.class));
         sharedPreferenceConfig.writeLoginStatus(true);
         finish();
              }
         }
-
         if(flag==false)
         {
             Toast.makeText(this, "Login failed! Try again ...", Toast.LENGTH_LONG).show();
             UserName.setText("");
             UserPassword.setText("");
         }
-
 
     }
 }

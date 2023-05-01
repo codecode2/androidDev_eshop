@@ -43,21 +43,12 @@ public class WelcomePageActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_fragments);
-
-
         myAppDatabase = Room.databaseBuilder(getApplicationContext(),eshopDatabase.class,"reservesBD").allowMainThreadQueries().build();
-
-
         welcomeFragment welcomefragmentIntro = new welcomeFragment();
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
-
-
         sharedPreferenceConfig = new sharedPreferenceConfig(getApplicationContext());
-
         toolbar = findViewById(R.id.firsttoolbar);
         setSupportActionBar(toolbar);
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
@@ -76,10 +67,6 @@ public class WelcomePageActivity extends AppCompatActivity  {
                         displayMessage("Home");
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
                         drawerLayout.closeDrawers();
-
-
-
-
                         return true;
                     case R.id.upload:
                         //   menuItem.setChecked(true);

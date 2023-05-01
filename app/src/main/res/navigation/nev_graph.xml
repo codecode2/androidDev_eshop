@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nev_graph"
+    app:startDestination="@id/intropagelogin">
+    <fragment android:id="@+id/intropagelogin" >
+        <action
+            android:id="@+id/action_intropagelogin_to_welcome_page"
+            app:destination="@id/welcome_page" />
+        <action
+            android:id="@+id/action_intropagelogin_to_drawer_menu2"
+            app:destination="@id/drawer_menu" />
+    </fragment>
+    <fragment android:id="@+id/welcome_page" />
+    <fragment android:id="@+id/drawer_menu" >
+        <action
+            android:id="@+id/action_drawer_menu_to_welcome_page"
+            app:destination="@id/welcome_page" />
+        <action
+            android:id="@+id/action_drawer_menu_to_productsfragment"
+            app:destination="@id/productsfragment" />
+        <action
+            android:id="@+id/action_drawer_menu_to_suppliersfragment"
+            app:destination="@id/suppliersfragment" />
+        <action
+            android:id="@+id/action_drawer_menu_to_suppliersfragment2"
+            app:destination="@id/searchingfragment" />
+        <action
+            android:id="@+id/action_drawer_menu_to_uploadfragment"
+            app:destination="@id/menuuploadfragment" />
+        <action
+            android:id="@+id/aboutfragment"
+            app:destination="@id/uploadfragment2" />
+    </fragment>
+    <fragment android:id="@+id/productsfragment" >
+        <action
+            android:id="@+id/action_productsfragment_to_placeholder4"
+            app:destination="@id/insert_product" />
+    </fragment>
+    <fragment android:id="@+id/suppliersfragment" />
+    <fragment android:id="@+id/searchingfragment" />
+    <fragment android:id="@+id/menuuploadfragment" />
+    <fragment android:id="@+id/uploadfragment2" />
+    <fragment android:id="@+id/insert_product" />
+</navigation>

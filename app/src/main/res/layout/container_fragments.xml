@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/background6">
+        android:background="@color/welcomeText">
         <include layout="@layout/mytoolbar"></include>
         <FrameLayout
             android:id="@+id/fragment_container"
