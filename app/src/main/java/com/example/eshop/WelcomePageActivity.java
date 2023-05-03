@@ -68,11 +68,6 @@ public class WelcomePageActivity extends AppCompatActivity  {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, welcomefragmentIntro).commit();
                         drawerLayout.closeDrawers();
                         return true;
-                    case R.id.upload:
-                        //   menuItem.setChecked(true);
-
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentUpload).commit();
-                        drawerLayout.closeDrawers();
 
                     case R.id.products:
                         //  menuItem.setChecked(true);

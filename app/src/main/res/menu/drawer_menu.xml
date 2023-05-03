@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
 
 
-    <group android:checkableBehavior="none">
+    <group android:checkableBehavior="none"
+
+        >
+
 
         <item
             android:id="@+id/myhome"
             android:title="Home"
+            android:icon="@drawable/baseline_home_24"
 
            >
         </item>
@@ -15,6 +20,8 @@
         <item
             android:id="@+id/products"
             android:title="Products"
+            android:icon="@drawable/baseline_shopping_basket_24"
+
             >
         </item>
 
@@ -23,35 +30,33 @@
         <item
             android:id="@+id/suppliers"
             android:title="Suppliers"
+            android:icon="@drawable/baseline_face_24"
             >
         </item>
         <item
             android:id="@+id/find"
             android:title="Search"
+            android:icon="@drawable/baseline_search_24"
           >
 
         </item>
-        <item
-            android:id="@+id/upload"
-            android:title="Upload"
-            >
 
-        </item>
 
 
         <item
             android:id="@+id/aboutFragment"
-            android:title="About"
+            android:title="Support"
+            android:icon="@drawable/baseline_support_agent_24"
            >
 
         </item>
         <item
             android:id="@+id/logout"
             android:title="Log out"
+            android:icon="@drawable/baseline_power_settings_new_24"
              >
 
         </item>
-
 
     </group>
 
