@@ -55,9 +55,17 @@ public class WelcomePageActivity extends AppCompatActivity  {
         MenuUploadFragment fragmentUpload = new MenuUploadFragment();
 
         SearchingFragment search = new SearchingFragment();
-        AboutFragment aboutFragment = new AboutFragment();
+        SupportFragment support = new SupportFragment();
         ProductsFragment product = new ProductsFragment();
-        SuppliersFragment suplier =new SuppliersFragment();
+        SuppliersFragment supplier =new SuppliersFragment();
+
+
+        CategoryFragment categories =new CategoryFragment();
+        SuppliesFragment supplies =new SuppliesFragment();
+
+
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -79,7 +87,7 @@ public class WelcomePageActivity extends AppCompatActivity  {
                     case R.id.suppliers:
                         //  menuItem.setChecked(true);
 
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, suplier).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, supplier).commit();
                         drawerLayout.closeDrawers();
                         return true;
 
@@ -89,10 +97,25 @@ public class WelcomePageActivity extends AppCompatActivity  {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, search).commit();
                         drawerLayout.closeDrawers();
                         return true;
+
                     case R.id.aboutFragment:
                         //  menuItem.setChecked(true);
 
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, aboutFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, support).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.categories:
+                        //  menuItem.setChecked(true);
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, categories).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.supplies:
+                        //  menuItem.setChecked(true);
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, supplies).commit();
                         drawerLayout.closeDrawers();
                         return true;
 

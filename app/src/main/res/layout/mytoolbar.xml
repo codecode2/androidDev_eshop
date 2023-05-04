@@ -6,7 +6,7 @@
     android:id="@+id/firsttoolbar"
 
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:background="#9E2EAFC6" >
+    android:background="#9E1E9DB4" >
 
 
 

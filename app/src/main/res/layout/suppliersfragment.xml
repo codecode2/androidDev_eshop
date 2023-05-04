@@ -3,15 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
 
     <TextView
-        android:id="@+id/suppliersTitle"
-        android:layout_width="249dp"
-        android:layout_height="92dp"
-        android:text="Supliers"
-        android:textSize="40dp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="49dp" />
+        android:id="@+id/suppliers_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Suppliers"
+        android:textAlignment="center"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_products"
+        android:layout_width="385dp"
+        android:layout_height="108dp"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="52dp"
+        android:scaleX="2"
+
+        android:scaleY="1.7"
+        android:src="@drawable/suppliers_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suppliers_textview"></ImageView>
+
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="254dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/rounded_button"
+        android:text="INSERT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_products" />
+
+    <Button
+        android:id="@+id/modifyButton"
+        android:layout_width="258dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/rounded_button"
+        android:text="Modify"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertButton" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="256dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/rounded_button"
+        android:text="delete"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyButton" />
+
+    />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

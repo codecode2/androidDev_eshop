@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class AboutFragment extends Fragment {
+public class SupportFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -16,7 +16,7 @@ public class AboutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AboutFragment() {
+    public SupportFragment() {
         // Required empty public constructor
     }
 
@@ -41,7 +41,7 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.aboutfragment, container, false);
+        View view = inflater.inflate(R.layout.supportfragment, container, false);
 
         Bundle bundle = getArguments();
 

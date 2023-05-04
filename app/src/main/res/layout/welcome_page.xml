@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background3"
+
     >
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="169dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="100dp"
-        android:background="@color/welcomeText"
+
+        android:layout_width="226dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/rounded_textboxes"
         android:fontFamily="sans-serif-medium"
         android:text="Welcome"
         android:textAlignment="center"

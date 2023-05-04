@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/supplies_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Supplies"
+        android:textAlignment="center"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_categories"
+        android:layout_width="385dp"
+        android:layout_height="108dp"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="52dp"
+        android:scaleX="2"
+
+        android:scaleY="1.7"
+        android:src="@drawable/supplies_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/supplies_textview"></ImageView>
+
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="254dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/rounded_button"
+        android:text="INSERT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_categories" />
+
+    <Button
+        android:id="@+id/modifyButton"
+        android:layout_width="258dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/rounded_button"
+        android:text="Modify"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertButton" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="256dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/rounded_button"
+        android:text="delete"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyButton" />
+
+    />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

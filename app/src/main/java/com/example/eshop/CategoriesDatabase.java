@@ -12,7 +12,7 @@ public class CategoriesDatabase {
     private int id;
 
     @ColumnInfo(name = "name_category")
-    private String products_name;
+    private String category_name;
 
     @ColumnInfo (name = "category_description")
     private String category_description;
@@ -25,12 +25,12 @@ public class CategoriesDatabase {
         this.id = id;
     }
 
-    public String getProducts_name() {
-        return products_name;
+    public String getCategory_name() {
+        return category_name;
     }
 
-    public void setProducts_name(String products_name) {
-        this.products_name = products_name;
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
     public String getCategory_description() {

@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 
 public class InsertProductFragment extends Fragment {
-    EditText editText1, editText2, editText3, editText4;
-    Button sibn;
+    EditText id, name, description, price;
+    Button submit_button;
 
     public InsertProductFragment() {
         // Required empty public constructor
@@ -35,26 +35,26 @@ public class InsertProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.insert_product, container, false);
-        editText1 = view.findViewById(R.id.product_id);
-        editText2 = view.findViewById(R.id.product_name);
-        editText3 = view.findViewById(R.id.product_description);
-        editText4 = view.findViewById(R.id.product_price);
-        sibn = view.findViewById(R.id.insertProductSubmitButton);
-        sibn.setOnClickListener(new View.OnClickListener() {
+        id = view.findViewById(R.id.product_id);
+        name = view.findViewById(R.id.product_name);
+        description = view.findViewById(R.id.product_description);
+        price = view.findViewById(R.id.product_price);
+        submit_button = view.findViewById(R.id.insertProductSubmitButton);
+        submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int Var_productid = 0;
                 try {
-                    Var_productid = Integer.parseInt(editText1.getText().toString());
+                    Var_productid = Integer.parseInt(id.getText().toString());
                 } catch (NumberFormatException ex) {
                     System.out.println("Could not parse " + ex);
                 }
-                String Var_productname = editText2.getText().toString();
-                String Var_product_description = editText3.getText().toString();
+                String Var_productname = name.getText().toString();
+                String Var_product_description = description.getText().toString();
                 int Var_productprice = 0;
 
                 try {
-                    Var_productprice = Integer.parseInt(editText4.getText().toString());
+                    Var_productprice = Integer.parseInt(price.getText().toString());
                 } catch (NumberFormatException ex) {
                     System.out.println("Could not parse " + ex);
                 }
@@ -71,10 +71,10 @@ public class InsertProductFragment extends Fragment {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
                 }
-                editText1.setText("");
-                editText2.setText("");
-                editText3.setText("");
-                editText4.setText("");
+                id.setText("");
+                name.setText("");
+                description.setText("");
+                price.setText("");
             }
         });
         return view;

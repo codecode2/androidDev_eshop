@@ -363,7 +363,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/power_settings_new/baseline_power_settings_new_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Android/Sdk/icons/material/materialicons/remove_circle_outline/baseline_remove_circle_outline_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -373,7 +373,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="testingicondeleteafter" />
+                            <entry key="outputName" value="baseline_remove_circle_outline_24" />
                           </map>
                         </option>
                       </PersistentState>

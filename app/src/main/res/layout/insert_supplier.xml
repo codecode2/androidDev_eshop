@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/insert_supplies_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Insert a Supplier"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:layout_width="114dp"
+            android:layout_height="70dp"
+            android:src="@drawable/add_supplier_icon"
+            android:layout_marginLeft="150dp"
+            ></ImageView>
+
+        <EditText
+            android:id="@+id/supplier_id"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="id"
+            android:background="@drawable/rounded_textboxes2"
+            android:height="22dp"
+            />
+
+        <EditText
+            android:id="@+id/supplier_name"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="name"
+            android:background="@drawable/rounded_textboxes2"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/supplier_nickname"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="nickname"
+            android:background="@drawable/rounded_textboxes2"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/supplier_address"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="13"
+            android:inputType="text"
+            android:hint="address"
+            android:background="@drawable/rounded_textboxes2"/>
+
+        <EditText
+            android:id="@+id/supplier_phone"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="phone"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/insertProductSubmitButton"
+            android:layout_width="145dp"
+            android:layout_height="69dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit" />
+
+</LinearLayout>

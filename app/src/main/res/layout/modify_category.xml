@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/modify_supplies_title"
+            android:layout_width="362dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Modify a Category"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:layout_width="114dp"
+            android:layout_height="180dp"
+            android:scaleY="1.5"
+            android:scaleX="1.7"
+            android:src="@drawable/baseline_category_24"
+            android:layout_marginLeft="170dp"
+            ></ImageView>
+
+        <ImageView
+            android:layout_width="114dp"
+            android:layout_height="180dp"
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:layout_marginTop="-180dp"
+
+            android:src="@drawable/baseline_edit_24"
+            android:layout_marginLeft="50dp"
+            ></ImageView>
+
+
+        <EditText
+            android:id="@+id/category_id"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="insert id"
+            android:background="@drawable/rounded_textboxes2"
+            android:height="22dp"
+            />
+
+        <EditText
+            android:id="@+id/category_name"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Insert name "
+            android:background="@drawable/rounded_textboxes2"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/category_description"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="13"
+            android:inputType="text"
+            android:hint="Insert description"
+            android:background="@drawable/rounded_textboxes2"/>
+
+        <Button
+            android:id="@+id/insertCategorySubmitButton"
+            android:layout_width="145dp"
+            android:layout_height="69dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit" />
+
+</LinearLayout>
