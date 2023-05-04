@@ -6,35 +6,40 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/aboutTitle"
-        android:layout_width="342dp"
-        android:layout_height="526dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="@color/about_title"
-
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/eshopAbout"
-        android:layout_width="199dp"
-        android:layout_height="54dp"
+        android:id="@+id/support_title1"
+        android:layout_width="245dp"
+        android:layout_height="55dp"
         android:layout_marginTop="28dp"
         android:layout_weight="1"
-        android:background="@color/about_title"
-        android:text="About"
+        android:background="@drawable/rounded_textboxes"
+
+        android:text="Support"
         android:textAlignment="center"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/aboutTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.824" />
+        app:layout_constraintVertical_bias="0.261" />
+
+    <TextView
+        android:id="@+id/aboutTitle"
+        android:layout_width="343dp"
+        android:layout_height="385dp"
+        android:layout_marginBottom="100dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_textboxes2"
+        android:text="@string/support_text1"
+        android:textAlignment="center"
+        android:textSize="29dp"
+
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

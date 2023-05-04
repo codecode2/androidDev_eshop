@@ -23,23 +23,21 @@
 
         <ImageView
             android:layout_width="114dp"
-            android:layout_height="180dp"
-            android:scaleY="1.5"
-            android:scaleX="1.7"
-            android:src="@drawable/supplies_icon"
+            android:layout_height="168dp"
             android:layout_marginLeft="190dp"
-            ></ImageView>
+            android:scaleX="1.7"
+            android:scaleY="1.5"
+            android:src="@drawable/supplies_icon"></ImageView>
 
         <ImageView
             android:layout_width="114dp"
-            android:layout_height="180dp"
-            android:scaleY="1"
-            android:scaleX="1"
-            android:layout_marginTop="-180dp"
-
-            android:src="@drawable/add_icon"
+            android:layout_height="119dp"
             android:layout_marginLeft="50dp"
-            ></ImageView>
+            android:layout_marginTop="-140dp"
+            android:scaleX="1"
+
+            android:scaleY="1"
+            android:src="@drawable/add_icon"></ImageView>
 
         <EditText
             android:id="@+id/supplies_id"

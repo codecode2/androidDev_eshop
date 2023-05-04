@@ -36,7 +36,7 @@ public class DeleteSuppliesFragment extends Fragment {
         View view = inflater.inflate(R.layout.delete_supplies, container, false);
         id = view.findViewById(R.id.supplies_id2);
 
-
+        submit_button = view.findViewById(R.id.deleteSupplySubmitButton);
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +56,7 @@ public class DeleteSuppliesFragment extends Fragment {
 
 
 
-                    WelcomePageActivity.myAppDatabase.myDao().updateSupplies(supplies);
+                    WelcomePageActivity.myAppDatabase.myDao().deleteSupplies(supplies);
                     Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     String message = e.getMessage();

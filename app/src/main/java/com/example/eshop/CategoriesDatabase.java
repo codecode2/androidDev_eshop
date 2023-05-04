@@ -2,7 +2,11 @@ package com.example.eshop;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import org.checkerframework.common.aliasing.qual.Unique;
+import org.jetbrains.annotations.NotNull;
 
 @Entity (tableName = "categories")
 public class CategoriesDatabase {
@@ -11,7 +15,12 @@ public class CategoriesDatabase {
     @PrimaryKey
     private int id;
 
+
+    @Unique
+    @NotNull
     @ColumnInfo(name = "name_category")
+
+
     private String category_name;
 
     @ColumnInfo (name = "category_description")

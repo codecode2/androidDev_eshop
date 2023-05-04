@@ -55,7 +55,7 @@
             />
 
         <Button
-            android:id="@+id/deleteCategorySubmitButton"
+            android:id="@+id/deleteSupplySubmitButton"
             android:layout_width="145dp"
             android:layout_height="69dp"
             android:layout_gravity="center_horizontal"

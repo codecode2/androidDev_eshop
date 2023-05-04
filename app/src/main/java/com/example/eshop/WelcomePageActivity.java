@@ -23,13 +23,17 @@ public class WelcomePageActivity extends AppCompatActivity  {
 
     public static FragmentManager fragmentManager;
     public static eshopDatabase myAppDatabase;
+    public static eshopDatabase eshopDb;
 
     public WelcomePageActivity(){}
+
 
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    public static eshopDatabase database;
 
     private sharedPreferenceConfig sharedPreferenceConfig;
 
@@ -52,7 +56,7 @@ public class WelcomePageActivity extends AppCompatActivity  {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
-        MenuUploadFragment fragmentUpload = new MenuUploadFragment();
+
 
         SearchingFragment search = new SearchingFragment();
         SupportFragment support = new SupportFragment();
@@ -140,6 +144,9 @@ public class WelcomePageActivity extends AppCompatActivity  {
         finish();
         }
 
+    public static eshopDatabase getDatabase() {
+        return database;
+    }
 
 
     void displayMessage(String message){

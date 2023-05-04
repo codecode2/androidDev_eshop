@@ -23,23 +23,21 @@
 
         <ImageView
             android:layout_width="114dp"
-            android:layout_height="180dp"
-            android:scaleY="1.5"
-            android:scaleX="1.7"
-            android:src="@drawable/baseline_category_24"
+            android:layout_height="158dp"
             android:layout_marginLeft="170dp"
-            ></ImageView>
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/baseline_category_24"></ImageView>
 
         <ImageView
             android:layout_width="114dp"
-            android:layout_height="180dp"
-            android:scaleY="1"
-            android:scaleX="1"
-            android:layout_marginTop="-180dp"
-
-            android:src="@drawable/add_icon"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            ></ImageView>
+            android:layout_marginTop="-130dp"
+            android:scaleX="1"
+
+            android:scaleY="1"
+            android:src="@drawable/add_icon"></ImageView>
 
         <EditText
             android:id="@+id/category_id"

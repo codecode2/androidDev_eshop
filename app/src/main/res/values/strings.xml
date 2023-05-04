@@ -11,15 +11,26 @@
     <string name="user_name3">ian</string>
     <string name="user_password3">123456</string>
 
+    <string name="support_text1"> If you ever have any questions or concerns, please feel free to contact our support team at eshop@eshop.com or call us at 2310101010. Our team is available 08:00-16:00 to assist you with any issues you may be experiencing.  Best regards,Eshop app</string>
+    <string name="support_text2" > Our team is available 08:00-16:00 to assist you with any issues you may be experiencing.</string>
+     <string name="support_text3" >  We also wanted to take a moment to remind you that we are dedicated to providing you with the best possible user experience.</string>
+      <string  name="support_text4"> If there is anything we can do to improve our app or make it more useful to you, please dont hesitate to let us know. </string>
+    <string  name="support_text5">   Once again, thank you for choosing our app. We appreciate your business and look forward to continuing to serve you in the future.  </string>
+
+    <string  name="support_text6">  Best regards,Eshop app</string>
+
+
 
     <string-array name="all_strings_username">
-
+      <item>@string/user_name1</item>
         <item>@string/user_name2</item>
+        <item>@string/user_name3</item>
     </string-array>
 
     <string-array name="all_strings_passwords">
-
+        <item>@string/user_password1</item>
         <item>@string/user_password2</item>
+        <item>@string/user_password3</item>
     </string-array>
 
 </resources>

@@ -2,14 +2,22 @@ package com.example.eshop;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,11 +29,15 @@ public class InsertProductFragment extends Fragment {
     EditText id, name, description, price;
     Button submit_button;
 
+    public eshopDatabase eshopDb;
+    Spinner spinner;
+
+    public static MyDao dao;
+
+
     public InsertProductFragment() {
         // Required empty public constructor
     }
-
-
 
 
 
@@ -35,6 +47,55 @@ public class InsertProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.insert_product, container, false);
+
+
+            MyDao myDao = eshopDb.myDao();
+
+                List<CategoriesDatabase> cat = myDao.getCategories();
+
+
+
+
+
+        List<String> categories_results = new ArrayList<>();
+         for (CategoriesDatabase i: cat)
+        {
+            String category_name=i.getCategory_name();
+            categories_results.add(category_name);
+
+        }
+
+
+        spinner = view.findViewById(R.id.insert_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results);
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+            Bundle bundle = getArguments();
+
+
+        });
+
+
+
+
+
         id = view.findViewById(R.id.product_id);
         name = view.findViewById(R.id.product_name);
         description = view.findViewById(R.id.product_description);
@@ -76,6 +137,8 @@ public class InsertProductFragment extends Fragment {
                 description.setText("");
                 price.setText("");
             }
+
+
         });
         return view;
     }
