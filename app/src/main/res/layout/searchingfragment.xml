@@ -28,48 +28,43 @@
         <TextView
             android:id="@+id/chooseCategory"
             android:layout_width="222dp"
-            android:layout_height="51dp"
+            android:layout_height="62dp"
 
             android:layout_marginLeft="100dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/rounded_textboxes"
-            android:text="Choose a category"
+            android:text="Choose a category to search"
             android:textAlignment="center"
 
             android:textSize="22dp" />
 
-        <Spinner
-            android:id="@+id/spinnerSearch"
-            android:layout_width="367dp"
-            android:layout_height="68dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-
-            android:background="@drawable/rounded_textboxes" />
-
-
-
-        <EditText
-            android:id="@+id/searchInput"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-
-            android:layout_marginTop="10dp"
-            android:background="@color/searchingColors"
-            android:ems="10"
-            android:hint="Search"
-            android:inputType="textPersonName" />
-
         <Button
-            android:id="@+id/searchButton"
+            android:id="@+id/searchProducts"
             android:layout_width="271dp"
 
             android:layout_height="69dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/rounded_textboxes"
-            android:text="Search" />
+            android:text="Products" />
+        <Button
+            android:id="@+id/searchSupplier"
+            android:layout_width="271dp"
+
+            android:layout_height="69dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Supplier" />
+        <Button
+            android:id="@+id/searchSupplies"
+            android:layout_width="271dp"
+
+            android:layout_height="69dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Supplies" />
 
 
     </LinearLayout>

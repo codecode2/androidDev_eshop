@@ -21,6 +21,12 @@ public interface MyDao {
     @Query("select * from categories")
     public List<CategoriesDatabase> getCategories();
 
+    @Query("Select * from supplier")
+    public List<SupplierDatabase> getSuppliers();
+
+    @Query("Select * from supplies")
+    public List<SuppliesDatabase> getSupplies();
+
     @Delete
     public void deleteProduct(ProductsDatabase ProductsDatabase);
 
