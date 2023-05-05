@@ -30,7 +30,7 @@ public class InsertProductFragment extends Fragment {
     Button submit_button;
 
     public eshopDatabase eshopDb;
-    Spinner spinner;
+    Spinner spinner , spinnerSelection ;
 
     public static MyDao dao;
 
@@ -50,14 +50,9 @@ public class InsertProductFragment extends Fragment {
 
 
 
-                List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
-
-
-
-
-
+        List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
         List<String> categories_results = new ArrayList<>();
-         for (CategoriesDatabase i: cat)
+        for (CategoriesDatabase i: cat)
         {
             String category_name=i.getCategory_name();
             categories_results.add(category_name);
@@ -93,12 +88,16 @@ public class InsertProductFragment extends Fragment {
 
 
 
+        spinnerSelection = view.findViewById(R.id.insert_spinner);
+
+        String category= spinnerSelection.getSelectedItem().toString();
 
 
         id = view.findViewById(R.id.product_id);
         name = view.findViewById(R.id.product_name);
         description = view.findViewById(R.id.product_description);
         price = view.findViewById(R.id.product_price);
+
         submit_button = view.findViewById(R.id.insertProductSubmitButton);
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +110,7 @@ public class InsertProductFragment extends Fragment {
                 }
                 String Var_productname = name.getText().toString();
                 String Var_product_description = description.getText().toString();
+
                 int Var_productprice = 0;
 
                 try {
@@ -125,6 +125,7 @@ public class InsertProductFragment extends Fragment {
                     product.setProducts_name(Var_productname);
                     product.setProduct_description(Var_product_description);
                     product.setPrice(Var_productprice);
+                    product.setCategory_of_prod(category);
                     WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
                     Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {

@@ -4,11 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,10 +26,11 @@ public class ModifyProductFragment extends Fragment {
     EditText id, name, description, price;
     Button submit_button;
 
+
+    Spinner spinner , spinnerSelection ;
     public ModifyProductFragment() {
         // Required empty public constructor
     }
-
 
 
 
@@ -34,6 +41,50 @@ public class ModifyProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.modify_product, container, false);
+
+
+        List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
+        List<String> categories_results = new ArrayList<>();
+        for (CategoriesDatabase i: cat)
+        {
+            String category_name=i.getCategory_name();
+            categories_results.add(category_name);
+
+        }
+
+
+        spinner = view.findViewById(R.id.insert_spinner2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results);
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+            Bundle bundle = getArguments();
+
+
+        });
+
+        spinnerSelection = view.findViewById(R.id.insert_spinner2);
+
+        String category= spinnerSelection.getSelectedItem().toString();
+
+
+
         id = view.findViewById(R.id.product_id);
         name = view.findViewById(R.id.product_name);
         description = view.findViewById(R.id.product_description);
@@ -64,6 +115,7 @@ public class ModifyProductFragment extends Fragment {
                     product.setProducts_name(Var_productname);
                     product.setProduct_description(Var_product_description);
                     product.setPrice(Var_productprice);
+                    product.setCategory_of_prod(category);
                     WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
                     Toast.makeText(getActivity(),"Modify added.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {

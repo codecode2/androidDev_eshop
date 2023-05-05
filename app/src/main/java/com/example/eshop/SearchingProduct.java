@@ -6,17 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchingProduct extends Fragment {
+public class SearchingProduct extends Fragment implements View.OnClickListener  {
 
     Spinner spinner;
-
+    Button search_button;
     ArrayAdapter<CharSequence> adapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -48,6 +50,8 @@ public class SearchingProduct extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.searchproducts, container, false);
+        search_button = view.findViewById(R.id.searchButton);
+        search_button.setOnClickListener(this);
 
         List<String> categories_results = new ArrayList<>();
         List<CategoriesDatabase> categories= WelcomePageActivity.myAppDatabase.myDao().getCategories();
@@ -88,6 +92,35 @@ public class SearchingProduct extends Fragment {
 
      });
         return view;
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+
+
+
+
+
+
+        switch (v.getId()) {
+            case R.id.searchButton:
+
+                Bundle bundle = new Bundle();
+                bundle.putString("message", "Hello from Fragment 1");
+                ResultProduct fragment2 = new ResultProduct();
+                fragment2.setArguments(bundle);
+
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, new ResultProduct());
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+        }
+
 
     }
 }
