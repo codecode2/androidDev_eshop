@@ -49,9 +49,8 @@ public class InsertProductFragment extends Fragment {
         View view = inflater.inflate(R.layout.insert_product, container, false);
 
 
-            MyDao myDao = eshopDb.myDao();
 
-                List<CategoriesDatabase> cat = myDao.getCategories();
+                List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
 
 
 
