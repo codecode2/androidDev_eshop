@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/categories_textview"
+        android:layout_width="626dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Categories"
+        android:textAlignment="center"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="198dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/rounded_button"
+        android:text="INSERT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/modifyButton"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802" />
+
+    <ImageView
+        android:id="@+id/icon_categories"
+        android:layout_width="237dp"
+        android:layout_height="71dp"
+
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="24dp"
+        android:scaleX="2"
+
+        android:scaleY="1.7"
+        android:src="@drawable/baseline_category_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories_textview"></ImageView>
+
+    <Button
+        android:id="@+id/modifyButton"
+        android:layout_width="214dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="Modify"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.804" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="200dp"
+        android:layout_height="63dp"
+        android:background="@drawable/rounded_button"
+        android:text="delete"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/modifyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

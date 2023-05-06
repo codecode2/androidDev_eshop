@@ -33,7 +33,7 @@ public class ModifySupplierFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.insert_supplier, container, false);
+        View view = inflater.inflate(R.layout.modify_supplier, container, false);
         id = view.findViewById(R.id.supplier_id);
         name = view.findViewById(R.id.supplier_name);
         nickname = view.findViewById(R.id.supplier_nickname);

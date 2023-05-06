@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/insert_supplies_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Insert a Supplier"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toTopOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="118dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="130dp"
+            android:src="@drawable/add_supplier_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <EditText
+            android:id="@+id/supplier_id"
+            android:layout_width="292dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="89dp"
+            android:height="22dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="id"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/supplier_name"
+            android:layout_width="292dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="148dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="name"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/supplier_nickname"
+            android:layout_width="291dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="204dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="nickname"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/supplier_address"
+            android:layout_width="315dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="13"
+            android:hint="address"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/supplier_phone"
+            android:layout_width="316dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="phone"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/insertProductSubmitButton"
+            android:layout_width="189dp"
+            android:layout_height="49dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="255dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

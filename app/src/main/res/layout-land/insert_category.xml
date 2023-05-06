@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/insert_supplies_title"
+            android:layout_width="321dp"
+            android:layout_height="57dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Insert a Category"
+            android:textAlignment="center"
+            android:textSize="40dp"
+
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="114dp"
+            android:layout_height="158dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/baseline_category_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/add_icon"
+            app:layout_constraintBottom_toTopOf="@+id/insertCategorySubmitButton"
+            app:layout_constraintEnd_toStartOf="@+id/category_id"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/insert_supplies_title"
+            app:layout_constraintVertical_bias="0.5"></ImageView>
+
+        <EditText
+            android:id="@+id/category_id"
+            android:layout_width="353dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="56dp"
+            android:height="22dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="insert id"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/category_name"
+            android:layout_width="355dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="272dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="Insert name "
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/category_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_id"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <EditText
+            android:id="@+id/category_description"
+            android:layout_width="349dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="13"
+            android:hint="Insert description"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/insertCategorySubmitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_name"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <Button
+            android:id="@+id/insertCategorySubmitButton"
+            android:layout_width="198dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="211dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

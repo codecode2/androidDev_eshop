@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/SearchImage"
+        android:layout_width="140dp"
+        android:layout_height="86dp"
+        android:background="@drawable/rounded_textboxes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerSearch"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
+    <TextView
+        android:id="@+id/chooseCategory"
+        android:layout_width="222dp"
+        android:layout_height="51dp"
+
+        android:background="@drawable/rounded_textboxes"
+        android:text="Choose a category"
+        android:textAlignment="center"
+
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Spinner
+        android:id="@+id/spinnerSearch"
+        android:layout_width="367dp"
+        android:layout_height="68dp"
+
+        android:background="@drawable/rounded_textboxes"
+        app:layout_constraintBottom_toTopOf="@+id/searchInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCategory"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/searchInput"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:background="@color/searchingColors"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/searchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSearch"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="271dp"
+
+        android:layout_height="69dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchInput"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/SearchImage"
+        android:layout_width="140dp"
+        android:layout_height="86dp"
+        android:background="@drawable/rounded_textboxes"
+        app:layout_constraintBottom_toTopOf="@+id/chooseCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
+    <TextView
+        android:id="@+id/chooseCategory"
+        android:layout_width="222dp"
+        android:layout_height="62dp"
+
+        android:background="@drawable/rounded_textboxes"
+        android:text="Choose a category to search"
+        android:textAlignment="center"
+
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/searchProducts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchImage"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/searchProducts"
+        android:layout_width="271dp"
+
+        android:layout_height="69dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Products"
+        app:layout_constraintBottom_toTopOf="@+id/searchSupplies"
+        app:layout_constraintEnd_toStartOf="@+id/searchSupplier"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCategory"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/searchSupplier"
+        android:layout_width="271dp"
+
+        android:layout_height="69dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Supplier"
+        app:layout_constraintBottom_toTopOf="@+id/searchSupplies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/searchProducts"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCategory"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/searchSupplies"
+        android:layout_width="271dp"
+
+        android:layout_height="69dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Supplies"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchProducts"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

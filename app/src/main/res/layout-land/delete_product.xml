@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/insert_supplies_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="31dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Delete a Product"
+            android:textAlignment="center"
+
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="160dp"
+            android:layout_height="151dp"
+            android:src="@drawable/remove_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/product_id"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/insert_supplies_title"
+            app:layout_constraintVertical_bias="0.271"></ImageView>
+
+        <EditText
+            android:id="@+id/product_id"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:height="22dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="insert id"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/insertProductSubmitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/insert_supplies_title"
+            app:layout_constraintVertical_bias="0.535" />
+
+        <Button
+            android:id="@+id/insertProductSubmitButton"
+            android:layout_width="145dp"
+            android:layout_height="69dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="264dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
