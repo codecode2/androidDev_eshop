@@ -95,7 +95,7 @@
     "android-custom-view/home/code33/Android/Sdk/sources/android-33/android/view/View.java_SELECTED": "View",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop/app/src/main/res/layout",
+    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -103,8 +103,11 @@
   },
   "keyToStringList": {
     "com.android.tools.idea.sqlite.queryhistory": [
-      "delete   from products where products_id<300",
-      "select * from products;"
+      "delete from categories where id_category = 12",
+      "delete from room_master_table where id <50",
+      "delete from supplier where supplier_id <15",
+      "delete from products where products_id <15",
+      "delete from categories where id_category = 1"
     ]
   }
 }]]></component>

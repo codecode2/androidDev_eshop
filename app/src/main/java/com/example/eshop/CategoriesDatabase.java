@@ -19,8 +19,6 @@ public class CategoriesDatabase {
     @Unique
     @NotNull
     @ColumnInfo(name = "name_category")
-
-
     private String category_name;
 
     @ColumnInfo (name = "category_description")

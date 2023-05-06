@@ -21,13 +21,7 @@
 
             />
 
-        <ImageView
-            android:id="@+id/imageview"
-            android:layout_width="114dp"
-            android:layout_height="58dp"
-            android:layout_marginLeft="150dp"
-            android:src="@drawable/modify_icon"
-            android:layout_marginBottom="14dp"></ImageView>
+
         <Spinner
             android:id="@+id/insert_spinner2"
 
@@ -83,6 +77,16 @@
             android:background="@drawable/rounded_textboxes2"
             android:ems="10"
             android:hint="Insert price"
+            android:inputType="number" />
+        <EditText
+            android:id="@+id/product_quantity"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="Quantity"
             android:inputType="number" />
 
         <Button

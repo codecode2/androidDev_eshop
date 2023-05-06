@@ -13,6 +13,11 @@ import org.jetbrains.annotations.NotNull;
 
 
 
+
+
+
+
+
 public class ProductsDatabase {
     @ColumnInfo(name="products_id")
     @PrimaryKey
@@ -37,6 +42,18 @@ public class ProductsDatabase {
     private int price;
 
 
+    @ColumnInfo (name = "quantity_product")
+    private int quantity_product_inside;
+
+
+
+    public int getQuantity_product_inside() {
+        return quantity_product_inside;
+    }
+
+    public void setQuantity_product_inside(int quantity_product_inside) {
+        this.quantity_product_inside = quantity_product_inside;
+    }
 
     public int getId() {
         return id;

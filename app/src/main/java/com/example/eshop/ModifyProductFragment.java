@@ -23,7 +23,7 @@ import java.util.List;
 
 
 public class ModifyProductFragment extends Fragment {
-    EditText id, name, description, price;
+    EditText id, name, description, price,quantity;
     Button submit_button;
 
 
@@ -89,6 +89,8 @@ public class ModifyProductFragment extends Fragment {
         name = view.findViewById(R.id.product_name);
         description = view.findViewById(R.id.product_description);
         price = view.findViewById(R.id.product_price);
+        quantity = view.findViewById(R.id.product_quantity);
+
         submit_button = view.findViewById(R.id.insertProductSubmitButton);
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +111,14 @@ public class ModifyProductFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
 
+                int Var_quantity = 0;
+
+                try {
+                    Var_quantity = Integer.parseInt(quantity.getText().toString());
+                } catch (NumberFormatException ex) {
+                    System.out.println("Could not parse " + ex);
+                }
+
                 try {
                     ProductsDatabase product = new ProductsDatabase();
                     product.setId(Var_productid);
@@ -116,6 +126,7 @@ public class ModifyProductFragment extends Fragment {
                     product.setProduct_description(Var_product_description);
                     product.setPrice(Var_productprice);
                     product.setCategory_of_prod(category);
+                    product.setQuantity_product_inside(Var_quantity);
                     WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
                     Toast.makeText(getActivity(),"Modify added.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
