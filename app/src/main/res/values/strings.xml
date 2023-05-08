@@ -36,4 +36,14 @@
         <item>@string/user_password3</item>
     </string-array>
 
+
+    <string-array name="Spinner_for_Database">
+
+        <item>Order by id</item>
+        <item>Order by Name</item>
+
+
+
+    </string-array>
+
 </resources>

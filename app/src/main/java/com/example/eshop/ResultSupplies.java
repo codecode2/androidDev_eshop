@@ -57,9 +57,6 @@ public class ResultSupplies extends Fragment implements View.OnClickListener {
 
 
 
-
-
-
         }
     }
 
@@ -79,25 +76,75 @@ public class ResultSupplies extends Fragment implements View.OnClickListener {
                 String  selected_item = result.getString("df1");
                 String  text_written = result.getString("df2");
 
+                String parts[]= selected_item.split(" ");
 
                 if (selected_item.equals("All Supplies") && text_written.equals("")) {
 
-                    List<ProductsDatabase> products1 = WelcomePageActivity.myAppDatabase.myDao().getSuppliesProducts();
+                    List<ProductAndSuppliers> products1 = WelcomePageActivity.myAppDatabase.myDao().getSuppliersAndProducts();
 
-                    for (ProductsDatabase i : products1) {
-                        int id = i.getId();
-                        String product_name = i.getProducts_name();
-                        String category_of_product = i.getCategory_of_prod();
-                        String description = i.getProduct_description();
-                        int quantity = i.getQuantity_product_inside();
+                    for (ProductAndSuppliers i : products1) {
+                          int idProduct= i.getProducts_id();
+                          String product_name=i.getProducts_name();
+                          String description=i.getProduct_description();
+                          String category_of_product=i.getCategory_of_product();
+                          double price = i.getPrice();
+                          int quantity= i.getQuantity_product();
 
+                          int supplierid=i.getSupplier_id();
+                          String name= i.getSupplier_name();
+                          String nickname=i.getSupplier_nickname();
+                        product_list.add("\nSupplier id: " + supplierid+ "\nName: "+name+"\nNickname: "+nickname+
+                                "\nProduct id: " + String.valueOf(idProduct) + "\n" + "Product name: " + product_name + "\n"   + "Category: " + category_of_product + "\n" + "Quantity: " + quantity);
+                    }
+                }else if (selected_item.equals("All Supplies"))
+                {
 
-                        product_list.add("id: " + String.valueOf(id) + "\n" + "Product name: " + product_name + "\n" + "Description: " + description + "\n" + "Category: " + category_of_product + "\n" + "Quantity: " + quantity);
+                    List<ProductAndSuppliers> products1 = WelcomePageActivity.myAppDatabase.myDao().getSuppliersAndProducts2(text_written);
 
+                    for (ProductAndSuppliers i : products1) {
+                        int idProduct= i.getProducts_id();
+                        String product_name=i.getProducts_name();
+                        String description=i.getProduct_description();
+                        String category_of_product=i.getCategory_of_product();
+                        double price = i.getPrice();
+                        int quantity= i.getQuantity_product();
+
+                        int supplierid=i.getSupplier_id();
+                        String name= i.getSupplier_name();
+                        String nickname=i.getSupplier_nickname();
+                        product_list.add("\nSupplier id: " + supplierid+ "\nName: "+name+"\nNickname: "+nickname+
+                                "\nProduct id: " + String.valueOf(idProduct) + "\n" + "Product name: " + product_name + "\n"   + "Category: " + category_of_product + "\n" + "Quantity: " + quantity);
+                    }
+                }else
+
+                {
+                    List<ProductAndSuppliers> products1 = WelcomePageActivity.myAppDatabase.myDao().getSuppliersAndProducts3(Integer.parseInt(parts[0]));
+
+                    for (ProductAndSuppliers i : products1) {
+                        int idProduct= i.getProducts_id();
+                        String product_name=i.getProducts_name();
+                        String description=i.getProduct_description();
+                        String category_of_product=i.getCategory_of_product();
+                        double price = i.getPrice();
+                        int quantity= i.getQuantity_product();
+
+                        int supplierid=i.getSupplier_id();
+                        String name= i.getSupplier_name();
+                        String nickname=i.getSupplier_nickname();
+                        product_list.add("\nSupplier id: " + supplierid+ "\nName: "+name+"\nNickname: "+nickname+
+                                "\nProduct id: " + String.valueOf(idProduct) + "\n" + "Product name: " + product_name + "\n"   + "Category: " + category_of_product + "\n" + "Quantity: " + quantity);
                     }
 
 
+
+
                 }
+
+
+
+
+
+
 
 
 

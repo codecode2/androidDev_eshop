@@ -59,16 +59,17 @@ public class SearchingSupplies extends Fragment implements View.OnClickListener 
         search_button.setOnClickListener(this);
 
         List<String> categories_results = new ArrayList<>();
-        List<ProductsDatabase> categories= WelcomePageActivity.myAppDatabase.myDao().getProducts();
+        List<SupplierDatabase> categories= WelcomePageActivity.myAppDatabase.myDao().getSuppliers();
 
 
         categories_results.add("All Supplies");
-        for (ProductsDatabase i: categories)
+        for (SupplierDatabase i: categories)
         {
-            String productName=i.getProducts_name();
+            String Name=i.getSupplier_name();
+            String nickname=i.getSupplier_nickname();
             int id=i.getId();
 
-            categories_results.add(id + " "+productName );
+            categories_results.add(id + " "+Name +" "+ nickname);
 
         }
 

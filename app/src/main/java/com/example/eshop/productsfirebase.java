@@ -1,25 +1,27 @@
 package com.example.eshop;
 
 public class productsfirebase {
-    private String id_product;
-    private int name_product;
+    private int id_product;
+    private String name_product;
     private String product_description;
     private String product_of_category;
-    private String product_price;
+    private int product_price;
 
-    public String getId_product() {
+    private int quantity;
+
+    public int getId_product() {
         return id_product;
     }
 
-    public void setId_product(String id_product) {
+    public void setId_product(int id_product) {
         this.id_product = id_product;
     }
 
-    public int getName_product() {
+    public String getName_product() {
         return name_product;
     }
 
-    public void setName_product(int name_product) {
+    public void setName_product(String name_product) {
         this.name_product = name_product;
     }
 
@@ -39,11 +41,19 @@ public class productsfirebase {
         this.product_of_category = product_of_category;
     }
 
-    public String getProduct_price() {
+    public int getProduct_price() {
         return product_price;
     }
 
-    public void setProduct_price(String product_price) {
+    public void setProduct_price(int product_price) {
         this.product_price = product_price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

@@ -18,13 +18,18 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 
+
+
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class WelcomePageActivity extends AppCompatActivity  {
 
     public static FragmentManager fragmentManager;
     public static eshopDatabase myAppDatabase;
     public static eshopDatabase eshopDb;
+
+    public static FirebaseFirestore db_firestore;
 
     public WelcomePageActivity(){}
 
@@ -57,6 +62,7 @@ public class WelcomePageActivity extends AppCompatActivity  {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
+        db_firestore = FirebaseFirestore.getInstance();
 
 
         SearchingFragment search = new SearchingFragment();

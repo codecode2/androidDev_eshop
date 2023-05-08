@@ -2,6 +2,7 @@ package com.example.eshop;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
@@ -16,8 +17,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -88,6 +95,13 @@ public class InsertProductFragment extends Fragment {
 
 
 
+
+
+
+
+
+
+
         spinnerSelection = view.findViewById(R.id.insert_spinner);
 
         String category= spinnerSelection.getSelectedItem().toString();
@@ -139,7 +153,34 @@ public class InsertProductFragment extends Fragment {
                     product.setCategory_of_prod(category);
                     product.setQuantity_product_inside(Var_quantity);
                     WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
+
+                    productsfirebase productsfirestore=new productsfirebase();
+                    productsfirestore.setId_product(Var_productid);
+                    productsfirestore.setName_product(Var_productname);
+                    productsfirestore.setProduct_description(Var_product_description);
+                    productsfirestore.setProduct_of_category(category);
+                    productsfirestore.setProduct_price(Var_productprice);
+                    productsfirestore.setQuantity(Var_quantity);
+
+                    WelcomePageActivity.db_firestore.collection("productsfirestore").document(" "+Var_productid).
+                            set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(getActivity(),"Product added.",Toast.LENGTH_LONG).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(),"add operation failed.",Toast.LENGTH_LONG).show();
+                                }
+                            });
+
                     Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
+
+
+
+
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();

@@ -63,10 +63,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Class" />
         <option value="navigationResourceFile" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -95,7 +95,7 @@
     "android-custom-view/home/code33/Android/Sdk/sources/android-33/android/view/View.java_SELECTED": "View",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop/app/src/main/res/drawable",
+    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -103,11 +103,11 @@
   },
   "keyToStringList": {
     "com.android.tools.idea.sqlite.queryhistory": [
+      "select products_id,products_name,product_description,price,supplier_id,supplier_name,supplier_nickname from products,supplier,supplies where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id",
+      "select products_id,products_name,product_description,price,supplier_id,supplier_name,supplier_nickname from products,supplier",
       "delete from categories where id_category = 12",
       "delete from room_master_table where id <50",
-      "delete from supplier where supplier_id <15",
-      "delete from products where products_id <15",
-      "delete from categories where id_category = 1"
+      "delete from supplier where supplier_id <15"
     ]
   }
 }]]></component>
@@ -117,6 +117,9 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.eshop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/eshop" />
@@ -211,16 +214,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/eshop/SearchingSupplies.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
