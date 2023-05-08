@@ -18,11 +18,36 @@ public interface MyDao {
     @Query("select * from products")
     public List<ProductsDatabase> getProducts();
 
+
+    @Query("select * from products where products_name= :name")
+    public List<ProductsDatabase> getProductsWithVarName(String name);
+
+    @Query("select * from products where category_of_product= :category")
+    public List<ProductsDatabase> getProductsWithVarCategory(String category);
+
+    @Query("select * from products where category_of_product= :category and products_name= :name")
+    public List<ProductsDatabase> getProductsWithTogether(String category,String name);
     @Query("select * from categories")
     public List<CategoriesDatabase> getCategories();
 
+
     @Query("Select * from supplier")
     public List<SupplierDatabase> getSuppliers();
+
+
+    @Query("Select * from supplier where supplier_name = :name or supplier_nickname=:name")
+    public List<SupplierDatabase>  getSuppliersWithVarName(String name);
+
+    @Query("Select * from supplier where supplier_id=:id_var")
+    public List<SupplierDatabase> getSuppliersWithVarID(int id_var);
+
+
+    @Query("select * from products where products_id = (select id_supplies from supplies)")
+    public List<ProductsDatabase> getSuppliesProducts();
+
+    @Query("select * from products where products_id = (select id_supplies from supplies)")
+    public List<ProductsDatabase> getSuppliesProducts2();
+
 
     @Query("Select * from supplies")
     public List<SuppliesDatabase> getSupplies();
@@ -51,14 +76,14 @@ public interface MyDao {
 
 
    @Insert
-   public void insertSupplies(SuppliesDatabase categoriesDatabase);
+   public void insertSupplies(SuppliesDatabase suppliesDatabase);
 
     @Update
-    public void updateSupplies(SuppliesDatabase categoriesDatabase);
+    public void updateSupplies(SuppliesDatabase suppliesDatabase);
 
 
     @Delete
-    public void deleteSupplies(SuppliesDatabase categoriesDatabase);
+    public void deleteSupplies(SuppliesDatabase suppliesDatabase );
 
 
 

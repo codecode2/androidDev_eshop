@@ -6,17 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchingSupplier extends Fragment {
+public class SearchingSupplier extends Fragment implements View.OnClickListener{
 
     Spinner spinner;
-
+    EditText searchInput;
+    Button search_button;
     ArrayAdapter<CharSequence> adapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -47,12 +51,15 @@ public class SearchingSupplier extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.searchproducts, container, false);
+        View view = inflater.inflate(R.layout.searchsupplier, container, false);
+        search_button = view.findViewById(R.id.searchButton2);
+        searchInput= view.findViewById(R.id.searchInput2);
+        search_button.setOnClickListener(this);
 
         List<String> categories_results = new ArrayList<>();
         List<SupplierDatabase> categories= WelcomePageActivity.myAppDatabase.myDao().getSuppliers();
 
-        categories_results.add("");
+
         categories_results.add("All Suppliers");
         for (SupplierDatabase i: categories)
         {
@@ -65,7 +72,7 @@ public class SearchingSupplier extends Fragment {
 
 
 
-        spinner = view.findViewById(R.id.spinnerSearch);
+        spinner = view.findViewById(R.id.spinnerSearch2);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -91,6 +98,33 @@ public class SearchingSupplier extends Fragment {
 
      });
         return view;
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.searchButton2:
+
+                String message=spinner.getSelectedItem().toString();
+                String message2= searchInput.getText().toString();
+                Bundle result = new Bundle();
+                result.putString("df1", message);
+                result.putString("df2", message2);
+
+                getParentFragmentManager().setFragmentResult("DataFromProduct",result);
+
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container,  new ResultSupplier());
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+        }
+
 
     }
 }

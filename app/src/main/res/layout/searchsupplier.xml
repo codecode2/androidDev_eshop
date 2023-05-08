@@ -39,7 +39,7 @@
             android:textSize="22dp" />
 
         <Spinner
-            android:id="@+id/spinnerSearch"
+            android:id="@+id/spinnerSearch2"
             android:layout_width="367dp"
             android:layout_height="68dp"
             android:layout_marginLeft="25dp"
@@ -51,7 +51,7 @@
 
 
         <EditText
-            android:id="@+id/searchInput"
+            android:id="@+id/searchInput2"
             android:layout_width="350dp"
             android:layout_height="70dp"
             android:layout_marginLeft="33dp"
@@ -62,7 +62,7 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/searchButton"
+            android:id="@+id/searchButton2"
             android:layout_width="271dp"
 
             android:layout_height="69dp"

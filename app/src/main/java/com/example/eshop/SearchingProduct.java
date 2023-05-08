@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,9 @@ public class SearchingProduct extends Fragment implements View.OnClickListener  
     Spinner spinner;
     Button search_button;
     ArrayAdapter<CharSequence> adapter;
+
+    EditText searchInput ;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -51,11 +55,12 @@ public class SearchingProduct extends Fragment implements View.OnClickListener  
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.searchproducts, container, false);
         search_button = view.findViewById(R.id.searchButton);
+        searchInput= view.findViewById(R.id.searchInput);
         search_button.setOnClickListener(this);
 
         List<String> categories_results = new ArrayList<>();
         List<CategoriesDatabase> categories= WelcomePageActivity.myAppDatabase.myDao().getCategories();
-        categories_results.add("");
+
         categories_results.add("All Products");
         for (CategoriesDatabase i: categories)
         {
@@ -98,19 +103,16 @@ public class SearchingProduct extends Fragment implements View.OnClickListener  
     @Override
     public void onClick(View v) {
 
-
-
-
-
-
-
         switch (v.getId()) {
             case R.id.searchButton:
 
-                Bundle bundle = new Bundle();
-                bundle.putString("message", "Hello from Fragment 1");
-                ResultProduct fragment2 = new ResultProduct();
-                fragment2.setArguments(bundle);
+                String message=spinner.getSelectedItem().toString();
+                String message2= searchInput.getText().toString();
+                Bundle result = new Bundle();
+                result.putString("df1", message);
+                result.putString("df2", message2);
+
+                getParentFragmentManager().setFragmentResult("DataFromProduct",result);
 
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();

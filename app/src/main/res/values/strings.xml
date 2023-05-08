@@ -25,6 +25,9 @@
       <item>@string/user_name1</item>
         <item>@string/user_name2</item>
         <item>@string/user_name3</item>
+
+
+
     </string-array>
 
     <string-array name="all_strings_passwords">
