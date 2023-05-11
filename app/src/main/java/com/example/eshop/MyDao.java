@@ -50,23 +50,23 @@ public interface MyDao {
 
 
     @Query("select products_id,products_name,product_description,category_of_product,quantity_product,price,supplier_id,supplier_name,supplier_nickname from products,supplier,supplies"+
-            " where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id ")
+            " where supplies.id_product_foreign=products_id and id_supplier_foreign=supplier_id ")
     public List<ProductAndSuppliers> getSuppliersAndProducts();
 
     @Query("select products_id,products_name,product_description,category_of_product,quantity_product,price,supplier_id,supplier_name,supplier_nickname " +
             "from products,supplier,supplies "+
-            "where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id and products_name= :product " +
+            "where supplies.id_product_foreign=products_id and id_supplier_foreign=supplier_id and products_name= :product " +
             "UNION " +
             "select products_id,products_name,product_description,category_of_product,quantity_product,price,supplier_id,supplier_name,supplier_nickname from products,supplier,supplies "+
-            " where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id and supplier_name=:product "  +
+            " where supplies.id_product_foreign=products_id and id_supplier_foreign=supplier_id and supplier_name=:product "  +
              "UNION " +
             "select products_id,products_name,product_description,category_of_product,quantity_product,price,supplier_id,supplier_name,supplier_nickname " +
             "from products,supplier,supplies "+
-            "where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id and supplier_nickname= :product "        )
+            "where supplies.id_product_foreign=products_id and id_supplier_foreign=supplier_id and supplier_nickname= :product "        )
     public List<ProductAndSuppliers> getSuppliersAndProducts2(String product);
 
     @Query("select products_id,products_name,product_description,category_of_product,quantity_product,price,supplier_id,supplier_name,supplier_nickname from products,supplier,supplies"+
-            " where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id and id_supplier_foreign= :supplier ")
+            " where supplies.id_product_foreign=products_id and id_supplier_foreign=supplier_id and id_supplier_foreign= :supplier ")
     public List<ProductAndSuppliers> getSuppliersAndProducts3(int supplier);
 
     @Query("Select * from supplies")

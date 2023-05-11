@@ -13,7 +13,6 @@ public class supplierfirebase {
 
      private String phone;
 
-
     public int getId_supplier() {
         return id_supplier;
     }

@@ -11,7 +11,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +46,7 @@ public class ModifyProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.modify_product, container, false);
-
+        WelcomePageActivity activity = (WelcomePageActivity) getActivity();
 
         List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
         List<String> categories_results = new ArrayList<>();
@@ -129,6 +134,29 @@ public class ModifyProductFragment extends Fragment {
                     product.setQuantity_product_inside(Var_quantity);
                     WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
                     Toast.makeText(getActivity(),"Modify added.",Toast.LENGTH_LONG).show();
+
+                    productsfirebase productsfirestore=new productsfirebase();
+                    productsfirestore.setId_product(Var_productid);
+                    productsfirestore.setName_product(Var_productname);
+                    productsfirestore.setProduct_description(Var_product_description);
+                    productsfirestore.setProduct_of_category(category);
+                    productsfirestore.setProduct_price(Var_productprice);
+                    productsfirestore.setQuantity(Var_quantity);
+
+                    WelcomePageActivity.db_firestore.collection("productsfirestore").document(" "+Var_productid).
+                            set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    activity.createNotifications("Modify Success","The record modified succesfully");
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    activity.createNotifications("Modify Failed","The record is not modified");
+                                }
+                            });
+
+
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();

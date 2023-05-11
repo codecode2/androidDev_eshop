@@ -8,7 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 
 
 /**
@@ -35,6 +40,7 @@ public class DeleteCategoryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.delete_category, container, false);
         id = view.findViewById(R.id.category_id);
+        WelcomePageActivity activity = (WelcomePageActivity) getActivity();
 
 
         submit_button = view.findViewById(R.id.deleteCategorySubmitButton);
@@ -58,7 +64,25 @@ public class DeleteCategoryFragment extends Fragment {
 
 
                     WelcomePageActivity.myAppDatabase.myDao().deleteCategory(category);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
+                    CategoriesDatabase catDatabase= new CategoriesDatabase();
+                    catDatabase.setId(Var_productid);
+
+
+                    WelcomePageActivity.db_firestore.collection("categories").document(" "+Var_productid).
+                            delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    activity.createNotifications("Deletion Success","The record deleted succesfully");
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    activity.createNotifications("Deletion Failed","The record is not deleted");
+                                }
+                            });
+
+                    Toast.makeText(getActivity(),"Deleted. ",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();

@@ -53,6 +53,12 @@ public class InsertProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        WelcomePageActivity activity = (WelcomePageActivity) getActivity();
+
+
+
+
         View view = inflater.inflate(R.layout.insert_product, container, false);
 
 
@@ -154,6 +160,7 @@ public class InsertProductFragment extends Fragment {
                     product.setQuantity_product_inside(Var_quantity);
                     WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
 
+
                     productsfirebase productsfirestore=new productsfirebase();
                     productsfirestore.setId_product(Var_productid);
                     productsfirestore.setName_product(Var_productname);
@@ -166,17 +173,16 @@ public class InsertProductFragment extends Fragment {
                             set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Toast.makeText(getActivity(),"Product added.",Toast.LENGTH_LONG).show();
+                                    activity.createNotifications("Insertion Success","The record inserted succesfully");
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getActivity(),"add operation failed.",Toast.LENGTH_LONG).show();
+                                    activity.createNotifications("Insertion Failed","The record is not inserted");
                                 }
                             });
 
                     Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
-
 
 
 

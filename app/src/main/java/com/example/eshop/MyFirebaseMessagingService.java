@@ -1,8 +1,10 @@
-package com.example.eshop;
+package com.example.eshop;// For Java
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.pm.PackageManager;
+import android.os.Build;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -10,24 +12,28 @@ import androidx.core.app.NotificationManagerCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Map;
+
+// ...
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
-    public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
-        super.onMessageReceived(remoteMessage);
-        String title = remoteMessage.getNotification().getTitle();
-        String message = remoteMessage.getNotification().getBody();
-        showNotification(title, message);
-    }
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        // Create a notification channel (required for Android 8.0 and above)
+        createNotificationChannel();
 
-    private void showNotification(String title, String message) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "myFirebaseChannel")
-                .setContentTitle(title)
-                .setContentText(message)
+        // Get the message data
+        Map<String, String> data = remoteMessage.getData();
+
+        // Build the notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "your_channel_id")
                 .setSmallIcon(R.drawable.app_icon)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setAutoCancel(true);
+                .setContentTitle(data.get("title"))
+                .setContentText(data.get("body"))
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
 
+        // Show the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -40,5 +46,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             return;
         }
         notificationManager.notify(0, builder.build());
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "your_channel_id",
+                    "Channel Name",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setDescription("Channel Description");
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

@@ -36,8 +36,7 @@ public class SuppliesFragment extends Fragment implements View.OnClickListener {
         insert_button.setOnClickListener(this);
         modify_button = view.findViewById(R.id.modifyButton);
         modify_button.setOnClickListener(this);
-        delete_button = view.findViewById(R.id.deleteButton);
-        delete_button.setOnClickListener(this);
+
 
         Bundle bundle = getArguments();
 
@@ -73,12 +72,7 @@ public class SuppliesFragment extends Fragment implements View.OnClickListener {
                 transaction2.addToBackStack(null);
                 transaction2.commit();
                 break;
-            case R.id.deleteButton:
-                FragmentTransaction transaction3 = getFragmentManager().beginTransaction();
-                transaction3.replace(R.id.fragment_container, new DeleteSuppliesFragment());
-                transaction3.addToBackStack(null);
-                transaction3.commit();
-                break;
+
         }
     }
 

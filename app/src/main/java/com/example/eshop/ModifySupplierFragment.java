@@ -8,7 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 
 
 /**
@@ -34,6 +39,7 @@ public class ModifySupplierFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.modify_supplier, container, false);
+        WelcomePageActivity activity = (WelcomePageActivity) getActivity();
         id = view.findViewById(R.id.supplier_id);
         name = view.findViewById(R.id.supplier_name);
         nickname = view.findViewById(R.id.supplier_nickname);
@@ -67,7 +73,31 @@ public class ModifySupplierFragment extends Fragment {
                     supplier.setAddress(Var_supplier_address);
                     supplier.setPhone(Var_supplier_phone);
                     WelcomePageActivity.myAppDatabase.myDao().updateSupplier(supplier);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
+                    supplierfirebase supplierfire = new supplierfirebase();
+                    supplierfire.setId_supplier(Var_supplier_id);
+                    supplierfire.setName_supplier(Var_supplier_name);
+                    supplierfire.setName_nickname(Var_supplier_nickname);
+                    supplierfire.setAddress(Var_supplier_address);
+                    supplierfire.setPhone(Var_supplier_phone);
+
+                    WelcomePageActivity.db_firestore.collection("supplierfirebase").document(" "+Var_supplier_id).
+                            set(supplierfire).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    activity.createNotifications("Modified Success","The record modified succesfully");
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    activity.createNotifications("Modified Failed","The record is not modified");
+                                }
+                            });
+
+
+
+
+                    Toast.makeText(getActivity(),"Modified.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
