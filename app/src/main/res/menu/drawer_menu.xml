@@ -54,6 +54,11 @@
             android:icon="@drawable/outline_shopping_cart_checkout_24">
         </item>
 
+        <item
+            android:id="@+id/Customer"
+            android:title="Customer"
+            android:icon="@drawable/baseline_person_24">
+        </item>
 
 
 

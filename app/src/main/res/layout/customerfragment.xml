@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/orderProduct"
+        android:layout_width="254dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/rounded_button"
+        android:text="order Product"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/insertButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_categories"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/customer_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_textboxes"
+        android:text="Customer"
+        android:textAlignment="center"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_categories"
+        android:layout_width="379dp"
+        android:layout_height="78dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:scaleX="2"
+
+        android:scaleY="1.7"
+        android:src="@drawable/baseline_person_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customer_textview"></ImageView>
+
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="270dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/rounded_button"
+        android:text="INSERT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_categories" />
+
+    <Button
+        android:id="@+id/modifyButton"
+        android:layout_width="264dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_button"
+        android:text="Modify"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertButton" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="264dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="delete"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyButton" />
+
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

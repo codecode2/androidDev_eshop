@@ -95,7 +95,7 @@
     "android-custom-view/home/code33/Android/Sdk/sources/android-33/android/view/View.java_SELECTED": "View",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop",
+    "last_opened_file_path": "/home/code33/AndroidStudioProjects/androidDev_eshop/app/src/main/res/layout",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -121,9 +121,9 @@
       <recent name="com.example.eshop" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/eshop" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />

@@ -84,6 +84,7 @@ public class WelcomePageActivity extends AppCompatActivity {
         SupportFragment support = new SupportFragment();
         ProductsFragment product = new ProductsFragment();
         SuppliersFragment supplier = new SuppliersFragment();
+        CustomerFragment customer= new CustomerFragment();
 
 
         CategoryFragment categories = new CategoryFragment();
@@ -136,6 +137,14 @@ public class WelcomePageActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, categories).commit();
                         drawerLayout.closeDrawers();
                         return true;
+
+                    case R.id.Customer:
+                        //  menuItem.setChecked(true);
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, customer).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+
 
                     case R.id.supplies:
                         //  menuItem.setChecked(true);

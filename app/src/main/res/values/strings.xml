@@ -46,4 +46,26 @@
 
     </string-array>
 
+
+    <string-array name="spinner_search_values">
+        <item></item>
+        <item>Order by Id</item>
+        <item>Order by Name</item>
+        <item>Order by Quantity</item>
+        <item>Order by Category</item>
+        <item>Order by Price</item>
+        <item>Price Over 10</item>
+        <item>Price Under 10</item>
+        <item>Quantity Over 5</item>
+        <item>Quantity Under 5</item>
+        <item>Price MAX</item>
+        <item>Price MIN</item>
+        <item>Quantity MAX</item>
+        <item>Quantity MIN</item>
+
+
+
+    </string-array>
+
+
 </resources>
