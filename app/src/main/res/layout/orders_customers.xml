@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/insert_supplies_title"
+            android:layout_width="344dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_textboxes"
+            android:text="Make an Order"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:id="@+id/icon_categories"
+            android:layout_width="379dp"
+            android:layout_height="68dp"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:scaleX="2"
+
+            android:scaleY="1.7"
+            android:src="@drawable/baseline_sell_24"
+            ></ImageView>
+
+        <Spinner
+            android:id="@+id/id_customer_spinner"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="30dp"
+            android:ems="10"
+            android:background="@drawable/rounded_textboxes2"
+            ></Spinner>
+
+        <Spinner
+            android:id="@+id/id_product_customer_spinner2"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:ems="10"
+            android:background="@drawable/rounded_textboxes2"
+            ></Spinner>
+
+
+
+        <EditText
+            android:id="@+id/order_id"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="insert id"
+            android:background="@drawable/rounded_textboxes2"
+            android:height="22dp"
+            />
+
+
+        <EditText
+            android:id="@+id/product_quantity_customer"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_textboxes2"
+            android:ems="10"
+            android:hint="Quantity"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/insertOrdersSubmitButton"
+            android:layout_width="145dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/rounded_button"
+            android:text="Submit" />
+
+</LinearLayout>

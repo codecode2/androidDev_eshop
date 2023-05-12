@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class CustomerFragment extends Fragment implements View.OnClickListener {
 
-        Button insert_button,modify_button,delete_button;
+        Button insert_button,modify_button,delete_button,orders_button;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -32,12 +32,14 @@ public class CustomerFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.customerfragment, container, false);
-        insert_button = view.findViewById(R.id.insertButton);
+        insert_button = view.findViewById(R.id.insertButton1);
         insert_button.setOnClickListener(this);
-        modify_button = view.findViewById(R.id.modifyButton);
+        modify_button = view.findViewById(R.id.modifyButton1);
         modify_button.setOnClickListener(this);
-        delete_button = view.findViewById(R.id.deleteButton);
+        delete_button = view.findViewById(R.id.deleteButton1);
         delete_button.setOnClickListener(this);
+        orders_button = view.findViewById(R.id.orderProduct1);
+        orders_button.setOnClickListener(this);
 
         Bundle bundle = getArguments();
 
@@ -61,23 +63,30 @@ public class CustomerFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.insertButton:
+            case R.id.insertButton1:
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, new InsertCategoryFragment());
+                transaction.replace(R.id.fragment_container, new InsertCustomerFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
-            case R.id.modifyButton:
+            case R.id.modifyButton1:
                 FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
-                transaction2.replace(R.id.fragment_container, new ModifyCategoryFragment());
+                transaction2.replace(R.id.fragment_container, new ModifyCustomerFragment());
                 transaction2.addToBackStack(null);
                 transaction2.commit();
                 break;
-            case R.id.deleteButton:
+            case R.id.deleteButton1:
                 FragmentTransaction transaction3 = getFragmentManager().beginTransaction();
-                transaction3.replace(R.id.fragment_container, new DeleteCategoryFragment());
+                transaction3.replace(R.id.fragment_container, new DeleteCustomerFragment());
                 transaction3.addToBackStack(null);
                 transaction3.commit();
+                break;
+
+            case R.id.orderProduct1:
+                FragmentTransaction transaction4 = getFragmentManager().beginTransaction();
+                transaction4.replace(R.id.fragment_container, new OrdersCustomerFragment());
+                transaction4.addToBackStack(null);
+                transaction4.commit();
                 break;
         }
     }

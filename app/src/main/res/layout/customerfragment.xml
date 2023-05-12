@@ -7,20 +7,19 @@
 
 
     <Button
-        android:id="@+id/orderProduct"
+        android:id="@+id/orderProduct1"
         android:layout_width="254dp"
         android:layout_height="49dp"
-        android:layout_marginTop="56dp"
         android:background="@drawable/rounded_button"
         android:text="order Product"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/insertButton"
+        app:layout_constraintBottom_toTopOf="@+id/insertButton1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_categories"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.494" />
 
     <TextView
         android:id="@+id/customer_textview"
@@ -54,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/customer_textview"></ImageView>
 
     <Button
-        android:id="@+id/insertButton"
+        android:id="@+id/insertButton1"
         android:layout_width="270dp"
         android:layout_height="58dp"
         android:layout_marginTop="144dp"
@@ -68,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/icon_categories" />
 
     <Button
-        android:id="@+id/modifyButton"
+        android:id="@+id/modifyButton1"
         android:layout_width="264dp"
         android:layout_height="57dp"
         android:layout_marginTop="24dp"
@@ -79,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insertButton" />
+        app:layout_constraintTop_toBottomOf="@+id/insertButton1" />
 
     <Button
-        android:id="@+id/deleteButton"
+        android:id="@+id/deleteButton1"
         android:layout_width="264dp"
         android:layout_height="51dp"
         android:layout_marginTop="16dp"
@@ -93,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifyButton" />
+        app:layout_constraintTop_toBottomOf="@+id/modifyButton1" />
 
     />
 
