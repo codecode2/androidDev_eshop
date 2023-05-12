@@ -87,7 +87,7 @@ public class InsertCategoryFragment extends Fragment {
                                 }
                             });
 
-                    Toast.makeText(getActivity(),"Modified.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Inserted.",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();

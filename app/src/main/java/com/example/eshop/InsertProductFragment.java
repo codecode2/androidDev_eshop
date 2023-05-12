@@ -73,6 +73,8 @@ public class InsertProductFragment extends Fragment {
         }
 
 
+
+
         spinner = view.findViewById(R.id.insert_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);

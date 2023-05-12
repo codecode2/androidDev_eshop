@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -52,6 +51,10 @@ public class InsertCustomerFragment extends Fragment {
 
 
 
+
+
+
+
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +75,7 @@ public class InsertCustomerFragment extends Fragment {
 
 
 
-                    CustomersFirebase customer = new CustomersFirebase();
+                    Customers customer = new Customers();
                     customer.setCustomer_id(customer_id);
                     customer.setName(username);
                     customer.setAddress(address);

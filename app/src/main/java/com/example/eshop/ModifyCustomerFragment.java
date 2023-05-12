@@ -70,7 +70,7 @@ public class ModifyCustomerFragment extends Fragment {
 
                 try {
 
-                    CustomersFirebase customer = new CustomersFirebase();
+                    Customers customer = new Customers();
                     customer.setCustomer_id(customer_id);
                     customer.setName(username);
                     customer.setAddress(address);

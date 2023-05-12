@@ -58,18 +58,7 @@
 
 
 
-        <EditText
-            android:id="@+id/order_id"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="insert id"
-            android:background="@drawable/rounded_textboxes2"
-            android:height="22dp"
-            />
+
 
 
         <EditText
@@ -84,7 +73,7 @@
             android:inputType="number" />
 
         <Button
-            android:id="@+id/insertOrdersSubmitButton"
+            android:id="@+id/Submit_order"
             android:layout_width="145dp"
             android:layout_height="64dp"
             android:layout_gravity="center_horizontal"
