@@ -1,5 +1,6 @@
 package com.example.eshop;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -87,7 +89,8 @@ public class welcomeFragment extends Fragment {
                 int count4 = querySnapshots.get(3).size();
                 int count5 = querySnapshots.get(4).size();
 
-                message1.setText("Customers: " + count1 +
+
+                message1.setText("                    Basic Infos\n"+"Customers: " + count1 +
                         "         Categories: " + count4 +
                         "\nSuppliers: " + count2 +
                                 "            Orders: " + count5+
@@ -101,6 +104,53 @@ public class welcomeFragment extends Fragment {
                 message1.setText("No internet connection");
             }
         });
+
+
+
+        CollectionReference productsCollection = WelcomePageActivity.db_firestore.collection("productsfirestore");
+
+        productsCollection.orderBy("quantity").limit(1).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if (!queryDocumentSnapshots.isEmpty()) {
+                    // Retrieve the first document (product) in the result
+                    DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(0);
+
+                    // Assuming your product document has fields like id_product, name_product, quantity
+                    int idProd = documentSnapshot.getLong("id_product").intValue();
+                    String nameProd = documentSnapshot.getString("name_product");
+                    int prodQuantity = documentSnapshot.getLong("quantity").intValue();
+                    String product_of_category = documentSnapshot.getString("product_of_category");
+                    int price = documentSnapshot.getLong("quantity").intValue();
+
+                    message2.append("           Lowest Quantity Product\n"+
+                            "Id: "+idProd +"\nName: "+nameProd+
+                            "                   Quantity: "+prodQuantity+
+                            "\nCategory: "+product_of_category+
+                            "           price: "+price);
+
+                   if (prodQuantity<=10)
+                   {
+                       Drawable drawable = getResources().getDrawable(R.drawable.rounded_low_quantity_product);
+
+                       message2.setBackground(drawable);
+                   }
+                }
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Handle failure in retrieving products
+                // ...
+            }
+        });
+
+
+
+
+
 
 
 
