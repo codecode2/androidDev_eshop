@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,7 +35,11 @@ import java.util.List;
 public class OrdersCustomerFragment extends Fragment {
     EditText  quantity,id ;
     Button submit_button;
+
+    String result="";
     int count;
+    double totalPrice = 0.0;
+
     ArrayAdapter<String> adapter,adapter2;
     Spinner spinnerCust , spinnerProd ;
 
@@ -187,7 +192,7 @@ public class OrdersCustomerFragment extends Fragment {
             public void onClick(View v) {
 
 
-                List<String> categories_results3 = new ArrayList<>();
+
                 CollectionReference collectionReference3 = WelcomePageActivity.db_firestore.collection("Order_items");
 
                 collectionReference3.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -208,9 +213,7 @@ public class OrdersCustomerFragment extends Fragment {
 
 
 
-
                 try {
-
                     double pricing = Integer.parseInt(partsProduct[5].trim()) * Integer.parseInt(quantity.getText().toString());
 
                     Order_items orders_items = new Order_items();
@@ -222,28 +225,84 @@ public class OrdersCustomerFragment extends Fragment {
 
                     count++;
 
-                    WelcomePageActivity.db_firestore.collection("Order_items").document(" "+count).
-                            set(orders_items).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    WelcomePageActivity.db_firestore.collection("Order_items").document(" " + count)
+                            .set(orders_items)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Insertion Success","The record inserted succesfully");
+                                    activity.createNotifications("Insertion Success", "The record inserted successfully");
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed","The record is not inserted");
+                                    activity.createNotifications("Insertion Failed", "The record is not inserted");
                                 }
                             });
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
+
+                    Orders sumorders = new Orders();
+                    sumorders.setCustomerid(Integer.parseInt(partsUser[1].trim()));
+                    sumorders.setDate(new Date());
+
+                    int customerid= Integer.parseInt(partsUser[1].trim());
+                    CollectionReference collectionReference4 = WelcomePageActivity.db_firestore.collection("Order_items");
+                    collectionReference4.whereEqualTo("customer_id",customerid).get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                    List<String> categories_results10 = new ArrayList<>();
+                                    categories_results10.clear();
+                                   int sumPrice=0;
+                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                        Order_items order_items2 = documentSnapshot.toObject(Order_items.class);
+                                        int id_produ = order_items2.getProduct_id();
+                                        int quantity = order_items2.getQuantity();
+                                        sumPrice+= order_items2.getPrice();
+                                        categories_results10.add("id: " + id_produ + " :Quantity: " + quantity+"\n");
+                                    }
+
+                                    sumorders.setItems(categories_results10.toString());
+                                    sumorders.setPrice(sumPrice);
+                                    WelcomePageActivity.db_firestore.collection("Orders").document(" " + customerid)
+                                            .set(sumorders)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    // Handle the completion of setting the "sumorders" object in the "Orders" collection
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    // Handle the failure of setting the "sumorders" object in the "Orders" collection
+                                                }
+                                            });
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle the failure of retrieving the items from the "Order_items" collection
+                                }
+                            });
+
+                    // Rest of your code...
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
                 }
+
                 quantity.setText("");
                 spinnerCust.setSelection(0);
                 spinnerProd.setSelection(0);
+
             }
         });
+
+
+
         return view;
     }
 }

@@ -19,8 +19,11 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class welcomeFragment extends Fragment {
 
@@ -147,6 +150,36 @@ public class welcomeFragment extends Fragment {
             }
         });
 
+
+
+
+        CollectionReference orders1 = WelcomePageActivity.db_firestore.collection("Orders");
+
+        orders1.orderBy("date").limit(1).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if (!queryDocumentSnapshots.isEmpty()) {
+                    // Retrieve the first document (order) in the result
+                    DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(0);
+
+                    // Retrieve the date value from the document
+                    Date date = documentSnapshot.getDate("date");
+
+                    // Format the date as needed
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                    String formattedDate = dateFormat.format(date);
+
+                    // Use the formatted date as desired
+                    message3.append("Last order: " + formattedDate + "\n");
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Handle failure in retrieving orders
+                // ...
+            }
+        });
 
 
 
