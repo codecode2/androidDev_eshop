@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
@@ -93,7 +95,7 @@ public class welcomeFragment extends Fragment {
                 int count5 = querySnapshots.get(4).size();
 
 
-                message1.setText("                    Basic Infos\n"+"Customers: " + count1 +
+                message1.setText("                       Basic Info\n"+"Customers: " + count1 +
                         "         Categories: " + count4 +
                         "\nSuppliers: " + count2 +
                                 "            Orders: " + count5+
@@ -126,11 +128,11 @@ public class welcomeFragment extends Fragment {
                     String product_of_category = documentSnapshot.getString("product_of_category");
                     int price = documentSnapshot.getLong("quantity").intValue();
 
-                    message2.append("           Lowest Quantity Product\n"+
+                    message2.append("                   Lowest Quantity Product\n"+
                             "Id: "+idProd +"\nName: "+nameProd+
                             "                   Quantity: "+prodQuantity+
                             "\nCategory: "+product_of_category+
-                            "           price: "+price);
+                            "             price: "+price);
 
                    if (prodQuantity<=10)
                    {
@@ -164,14 +166,52 @@ public class welcomeFragment extends Fragment {
 
                     // Retrieve the date value from the document
                     Date date = documentSnapshot.getDate("date");
-
+                    int cust_id= documentSnapshot.getLong("customerid").intValue();
                     // Format the date as needed
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                     String formattedDate = dateFormat.format(date);
+                    int price = documentSnapshot.getLong("price").intValue();
 
-                    // Use the formatted date as desired
-                    message3.append("Last order: " + formattedDate + "\n");
+
+
+                    CollectionReference collectionReference15 = WelcomePageActivity.db_firestore.collection("Customers");
+                    collectionReference15.whereEqualTo("customer_id",cust_id).get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+
+                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+
+                                        Customers cust = documentSnapshot.toObject(Customers.class);
+
+                                        String name = cust.getName();
+                                        String email = cust.getEmail();
+
+                                        message3.append(
+                                                "                                   Last order"
+                                                        + "\nCustomer id: " + cust_id+"                   Price:"+price
+                                                        + "\nUsername: " + name
+                                                        + "\nEmail: " + email +
+                                                        "\nDate: " + formattedDate + "\n");
+
+                                    }
+                                }
+
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle the failure of retrieving the items from the "Order_items" collection
+                                }
+                            });
+
+
+
+
                 }
+
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

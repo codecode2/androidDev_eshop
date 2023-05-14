@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class SearchingFragment extends Fragment implements View.OnClickListener {
 
-    Button product_search,supplier_search,supplies_search;
+    Button product_search,supplier_search,supplies_search,customer_search,orders_search;
 
     ArrayAdapter<CharSequence> adapter;
     private static final String ARG_PARAM1 = "param1";
@@ -50,6 +50,10 @@ public class SearchingFragment extends Fragment implements View.OnClickListener 
         supplier_search.setOnClickListener(this);
         supplies_search = view.findViewById(R.id.searchSupplies);
         supplies_search.setOnClickListener(this);
+        customer_search = view.findViewById(R.id.customers);
+        customer_search.setOnClickListener(this);
+        orders_search = view.findViewById(R.id.orders);
+        orders_search.setOnClickListener(this);
 
 
 
@@ -81,7 +85,18 @@ public class SearchingFragment extends Fragment implements View.OnClickListener 
                 transaction3.addToBackStack(null);
                 transaction3.commit();
                 break;
-
+            case R.id.customers:
+                FragmentTransaction transaction4 = getFragmentManager().beginTransaction();
+                transaction4.replace(R.id.fragment_container, new SearchingCustomer());
+                transaction4.addToBackStack(null);
+                transaction4.commit();
+                break;
+            case R.id.orders:
+                FragmentTransaction transaction5 = getFragmentManager().beginTransaction();
+                transaction5.replace(R.id.fragment_container, new SearchingOrder());
+                transaction5.addToBackStack(null);
+                transaction5.commit();
+                break;
 
 
 
