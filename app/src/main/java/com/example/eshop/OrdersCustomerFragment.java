@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -192,7 +194,6 @@ public class OrdersCustomerFragment extends Fragment {
             public void onClick(View v) {
 
 
-
                 CollectionReference collectionReference3 = WelcomePageActivity.db_firestore.collection("Order_items");
 
                 collectionReference3.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -209,10 +210,6 @@ public class OrdersCustomerFragment extends Fragment {
                 });
 
 
-
-
-
-
                 try {
                     double pricing = Integer.parseInt(partsProduct[5].trim()) * Integer.parseInt(quantity.getText().toString());
 
@@ -222,83 +219,165 @@ public class OrdersCustomerFragment extends Fragment {
                     orders_items.setProduct_id(Integer.parseInt(partsProduct[1].trim()));
                     orders_items.setQuantity(Integer.parseInt(quantity.getText().toString()));
                     orders_items.setTesting(partsProduct[7]);
+                    int prod_id= Integer.parseInt(partsProduct[1].trim());
+                    int quantityMinus = Integer.parseInt(partsProduct[7].trim()) - Integer.parseInt(quantity.getText().toString());
 
-                    count++;
+                    if (quantityMinus >= 0) {
 
-                    WelcomePageActivity.db_firestore.collection("Order_items").document(" " + count)
-                            .set(orders_items)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Insertion Success", "The record inserted successfully");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed", "The record is not inserted");
-                                }
-                            });
 
-                    Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
 
-                    Orders sumorders = new Orders();
-                    sumorders.setCustomerid(Integer.parseInt(partsUser[1].trim()));
-                    sumorders.setDate(new Date());
 
-                    int customerid= Integer.parseInt(partsUser[1].trim());
-                    CollectionReference collectionReference4 = WelcomePageActivity.db_firestore.collection("Order_items");
-                    collectionReference4.whereEqualTo("customer_id",customerid).get()
-                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                @Override
-                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                    List<String> categories_results10 = new ArrayList<>();
-                                    categories_results10.clear();
-                                   int sumPrice=0;
-                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                                        Order_items order_items2 = documentSnapshot.toObject(Order_items.class);
-                                        int id_produ = order_items2.getProduct_id();
-                                        int quantity = order_items2.getQuantity();
-                                        sumPrice+= order_items2.getPrice();
-                                        categories_results10.add("id: " + id_produ + " :Quantity: " + quantity+"\n");
+
+
+
+
+                        count++;
+
+                        WelcomePageActivity.db_firestore.collection("Order_items").document(" " + count)
+                                .set(orders_items)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Insertion Success", "The record inserted successfully");
                                     }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        activity.createNotifications("Insertion Failed", "The record is not inserted");
+                                    }
+                                });
 
-                                    sumorders.setItems(categories_results10.toString());
-                                    sumorders.setPrice(sumPrice);
-                                    WelcomePageActivity.db_firestore.collection("Orders").document(" " + customerid)
-                                            .set(sumorders)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    // Handle the completion of setting the "sumorders" object in the "Orders" collection
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    // Handle the failure of setting the "sumorders" object in the "Orders" collection
-                                                }
-                                            });
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Handle the failure of retrieving the items from the "Order_items" collection
-                                }
-                            });
+                        Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
 
-                    // Rest of your code...
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-                }
+                        Orders sumorders = new Orders();
+                        sumorders.setCustomerid(Integer.parseInt(partsUser[1].trim()));
+                        sumorders.setDate(new Date());
 
-                quantity.setText("");
-                spinnerCust.setSelection(0);
-                spinnerProd.setSelection(0);
+                        int customerid = Integer.parseInt(partsUser[1].trim());
+                        CollectionReference collectionReference4 = WelcomePageActivity.db_firestore.collection("Order_items");
+                        collectionReference4.whereEqualTo("customer_id", customerid).get()
+                                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                        List<String> categories_results10 = new ArrayList<>();
+                                        categories_results10.clear();
+                                        int sumPrice = 0;
+                                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                            Order_items order_items2 = documentSnapshot.toObject(Order_items.class);
+                                            int id_produ = order_items2.getProduct_id();
+                                            int quantity = order_items2.getQuantity();
+                                            sumPrice += order_items2.getPrice();
+                                            categories_results10.add("id: " + id_produ + " :Quantity: " + quantity + "\n");
+                                        }
+
+                                        sumorders.setItems(categories_results10.toString());
+                                        sumorders.setPrice(sumPrice);
+                                        WelcomePageActivity.db_firestore.collection("Orders").document(" " + customerid)
+                                                .set(sumorders)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        // Handle the completion of setting the "sumorders" object in the "Orders" collection
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        // Handle the failure of setting the "sumorders" object in the "Orders" collection
+                                                    }
+                                                });
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        // Handle the failure of retrieving the items from the "Order_items" collection
+                                    }
+                                });
+
+
+
+
+                        WelcomePageActivity.db_firestore.collection("productsfirestore").document(" " + prod_id)
+                                .update("quantity", quantityMinus)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+
+
+
+                        List<ProductsDatabase> prod= WelcomePageActivity.myAppDatabase.myDao().getProductstoSetNewQuantity(prod_id);
+
+                        String product_name="";
+                        String product_description="";
+                        String category_of="";
+                        int price =0;
+
+
+                        for (ProductsDatabase i: prod)
+                        {
+                           product_name=i.getProducts_name();
+                           product_description= i.getProduct_description();
+                           category_of = i.getCategory_of_prod();
+                           price= i.getPrice();
+
+
+
+                        }
+
+
+                        ProductsDatabase product = new ProductsDatabase();
+                        product.setQuantity_product_inside(quantityMinus);
+                        product.setId(prod_id);
+                        product.setProducts_name(product_name);
+                        product.setProduct_description(product_description);
+                        product.setCategory_of_prod(category_of);
+                        product.setPrice(price);
+                        WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
+
+
+
+
+
+
+
+
+
+                        }else
+                        {
+                            activity.createNotifications("Insertion Failed", "There is not enough products");
+
+
+                        }
+
+                    } catch(Exception e){
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
+
+                    quantity.setText("");
+                    spinnerCust.setSelection(0);
+                    spinnerProd.setSelection(0);
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new OrdersCustomerFragment());
+                fragmentTransaction.addToBackStack(null); // Optional: Add to back stack if needed
+                fragmentTransaction.commit();
+
 
             }
+
         });
 
 

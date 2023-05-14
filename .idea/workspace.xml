@@ -103,11 +103,11 @@
   },
   "keyToStringList": {
     "com.android.tools.idea.sqlite.queryhistory": [
+      "delete  from supplier where supplier_id<1000",
       "select products_id,products_name,product_description,price,supplier_id,supplier_name,supplier_nickname from products,supplier,supplies where supplies.id_product_foreign=id_product_foreign and id_supplier_foreign=supplier_id",
       "select products_id,products_name,product_description,price,supplier_id,supplier_name,supplier_nickname from products,supplier",
       "delete from categories where id_category = 12",
-      "delete from room_master_table where id <50",
-      "delete from supplier where supplier_id <15"
+      "delete from room_master_table where id <50"
     ]
   }
 }]]></component>

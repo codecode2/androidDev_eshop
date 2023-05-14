@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import org.checkerframework.framework.qual.EnsuresQualifierIf;
+
 import java.util.List;
 
 @Dao
@@ -153,7 +155,8 @@ public interface MyDao {
 
 
 
-
+    @Query("select * from products where products_id= :prodid")
+    public List<ProductsDatabase> getProductstoSetNewQuantity(int prodid);
 
 
     @Query("select * from categories")
