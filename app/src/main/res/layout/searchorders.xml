@@ -59,7 +59,8 @@
             android:background="@color/searchingColors"
             android:ems="10"
             android:hint="Search with customer id"
-            android:inputType="textPersonName" />
+
+            android:inputType="number" />
 
         <Button
             android:id="@+id/searchButton5"
@@ -69,7 +70,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/rounded_textboxes"
-            android:inputType="number"
+
             android:text="Search" />
 
 
