@@ -5,14 +5,9 @@ import java.util.Date;
 public class Orders {
 
     private int customerid;
-
     private Date date;
-
     private String items;
-
     private double price;
-
-
     public int getCustomerid() {
         return customerid;
     }

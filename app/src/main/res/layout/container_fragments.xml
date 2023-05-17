@@ -10,37 +10,25 @@
     tools:context=".IntroPageLoginActivity"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/rounded_alltemplates"
-
-        >
+        android:background="@drawable/rounded_alltemplates">
 
         <include layout="@layout/mytoolbar"></include>
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-
-
-        <com.google.android.material.navigation.NavigationView
+            android:layout_height="match_parent" /></LinearLayout>
+    <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:menu="@menu/drawer_menu"
             android:background="@drawable/soft_texture"
-            app:itemTextAppearance="@style/NavigationViewStyle"
-            >
-
+            app:itemTextAppearance="@style/NavigationViewStyle">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,10 +36,7 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="6dp"
             app:cardUseCompatPadding="true"
-            android:layout_gravity="bottom"
-
-            >
-
+            android:layout_gravity="bottom">
         <ImageView
             android:contentDescription="@string/app_name"
             android:layout_width="match_parent"

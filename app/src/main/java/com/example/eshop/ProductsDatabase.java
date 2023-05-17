@@ -10,42 +10,25 @@ import org.jetbrains.annotations.NotNull;
 
 
 @Entity (tableName = "products")
-
-
-
-
-
-
-
-
 public class ProductsDatabase {
     @ColumnInfo(name="products_id")
     @PrimaryKey
     private int id;
-
-
     @ColumnInfo(name = "products_name")
 
     private String products_name;
-
-
     @ColumnInfo (name = "product_description")
     private String product_description;
-
 
     @ColumnInfo(name="category_of_product")
     @NotNull
     private String category_of_prod;
 
-
     @ColumnInfo (name = "price")
     private int price;
 
-
     @ColumnInfo (name = "quantity_product")
     private int quantity_product_inside;
-
-
 
     public int getQuantity_product_inside() {
         return quantity_product_inside;

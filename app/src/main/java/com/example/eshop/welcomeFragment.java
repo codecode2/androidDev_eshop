@@ -75,7 +75,7 @@ public class welcomeFragment extends Fragment {
         CollectionReference collectionReference2 = WelcomePageActivity.db_firestore.collection("supplierfirebase");
         CollectionReference collectionReference3 = WelcomePageActivity.db_firestore.collection("productsfirestore");
         CollectionReference collectionReference4 = WelcomePageActivity.db_firestore.collection("categories");
-        CollectionReference collectionReference5 = WelcomePageActivity.db_firestore.collection("Order_items");
+        CollectionReference collectionReference5 = WelcomePageActivity.db_firestore.collection("Orders");
 
         Task<QuerySnapshot> task1 = collectionReference.get();
         Task<QuerySnapshot> task2 = collectionReference2.get();
@@ -126,13 +126,13 @@ public class welcomeFragment extends Fragment {
                     String nameProd = documentSnapshot.getString("name_product");
                     int prodQuantity = documentSnapshot.getLong("quantity").intValue();
                     String product_of_category = documentSnapshot.getString("product_of_category");
-                    int price = documentSnapshot.getLong("quantity").intValue();
+                    int price2 = documentSnapshot.getLong("product_price").intValue();
 
                     message2.append("                   Lowest Quantity Product\n"+
                             "Id: "+idProd +"\nName: "+nameProd+
                             "                   Quantity: "+prodQuantity+
                             "\nCategory: "+product_of_category+
-                            "             price: "+price);
+                            "             price: "+price2+"€");
 
                    if (prodQuantity<=10)
                    {
@@ -190,7 +190,7 @@ public class welcomeFragment extends Fragment {
 
                                         message3.append(
                                                 "                                   Last order"
-                                                        + "\nCustomer id: " + cust_id+"                   Price:"+price
+                                                        + "\nCustomer id: " + cust_id+"                   Price:"+price+"€"
                                                         + "\nUsername: " + name
                                                         + "\nEmail: " + email +
                                                         "\nDate: " + formattedDate + "\n");

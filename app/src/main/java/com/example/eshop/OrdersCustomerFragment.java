@@ -62,7 +62,7 @@ public class OrdersCustomerFragment extends Fragment {
         View view = inflater.inflate(R.layout.orders_customers, container, false);
 
         List<String> categories_results1 = new ArrayList<>();
-        categories_results1.add("Choose a Product");
+        categories_results1.add("Choose a Customer");
         WelcomePageActivity activity = (WelcomePageActivity) getActivity();
 
         CollectionReference collectionReference = WelcomePageActivity.db_firestore.collection("Customers");
@@ -121,7 +121,7 @@ public class OrdersCustomerFragment extends Fragment {
 
         List<String> categories_results2 = new ArrayList<>();
         CollectionReference collectionReference2 = WelcomePageActivity.db_firestore.collection("productsfirestore");
-        categories_results2.add("Choose a Customer");
+        categories_results2.add("Choose a Product");
         collectionReference2.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -218,7 +218,7 @@ public class OrdersCustomerFragment extends Fragment {
                     orders_items.setPrice(pricing);
                     orders_items.setProduct_id(Integer.parseInt(partsProduct[1].trim()));
                     orders_items.setQuantity(Integer.parseInt(quantity.getText().toString()));
-                    orders_items.setTesting(partsProduct[7]);
+
                     int prod_id= Integer.parseInt(partsProduct[1].trim());
                     int quantityMinus = Integer.parseInt(partsProduct[7].trim()) - Integer.parseInt(quantity.getText().toString());
 

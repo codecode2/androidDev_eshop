@@ -33,7 +33,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/rounded_textboxes"
-            android:text="Choose a category"
+            android:text="Choose a Customer"
             android:textAlignment="center"
 
             android:textSize="22dp" />

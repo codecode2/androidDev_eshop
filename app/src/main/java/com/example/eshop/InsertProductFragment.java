@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -35,7 +37,7 @@ import java.util.Map;
 public class InsertProductFragment extends Fragment {
     EditText id, name, description, price,quantity;
     Button submit_button;
-
+    String category;
     public eshopDatabase eshopDb;
     Spinner spinner , spinnerSelection ;
 
@@ -64,7 +66,9 @@ public class InsertProductFragment extends Fragment {
 
 
         List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
+
         List<String> categories_results = new ArrayList<>();
+        categories_results.add("");
         for (CategoriesDatabase i: cat)
         {
             String category_name=i.getCategory_name();
@@ -88,7 +92,7 @@ public class InsertProductFragment extends Fragment {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                category= spinner.getSelectedItem().toString();
             }
 
             @Override
@@ -110,9 +114,9 @@ public class InsertProductFragment extends Fragment {
 
 
 
-        spinnerSelection = view.findViewById(R.id.insert_spinner);
 
-        String category= spinnerSelection.getSelectedItem().toString();
+
+
 
 
         id = view.findViewById(R.id.product_id);
@@ -180,23 +184,34 @@ public class InsertProductFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed","The record is not inserted");
+
                                 }
                             });
 
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
 
 
 
 
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Insertion Failed","The record is not inserted");
                 }
                 id.setText("");
                 name.setText("");
                 description.setText("");
                 price.setText("");
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new InsertProductFragment());
+                fragmentTransaction.addToBackStack(null); // Optional: Add to back stack if needed
+                fragmentTransaction.commit();
+
+
+
+
+
             }
 
 

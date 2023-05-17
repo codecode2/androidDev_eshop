@@ -2,27 +2,15 @@ package com.example.eshop;
 
 public class Order_items {
 
-
-
     private int customer_id;
 
     private int product_id;
-
     private double price;
-
 
     private int quantity;
 
-    private String testing;
 
 
-    public String getTesting() {
-        return testing;
-    }
-
-    public void setTesting(String testing) {
-        this.testing = testing;
-    }
 
     public int getCustomer_id() {
         return customer_id;

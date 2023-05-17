@@ -30,7 +30,7 @@ import java.util.List;
 public class ModifyProductFragment extends Fragment {
     EditText id, name, description, price,quantity;
     Button submit_button;
-
+    String category;
 
     Spinner spinner , spinnerSelection ;
     public ModifyProductFragment() {
@@ -71,7 +71,7 @@ public class ModifyProductFragment extends Fragment {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+               category= spinner.getSelectedItem().toString();
             }
 
             @Override
@@ -84,9 +84,9 @@ public class ModifyProductFragment extends Fragment {
 
         });
 
-        spinnerSelection = view.findViewById(R.id.insert_spinner2);
 
-        String category= spinnerSelection.getSelectedItem().toString();
+
+
 
 
 
@@ -106,6 +106,7 @@ public class ModifyProductFragment extends Fragment {
                 } catch (NumberFormatException ex) {
                     System.out.println("Could not parse " + ex);
                 }
+                String var_category= category.toString();
                 String Var_productname = name.getText().toString();
                 String Var_product_description = description.getText().toString();
                 int Var_productprice = 0;
@@ -130,7 +131,7 @@ public class ModifyProductFragment extends Fragment {
                     product.setProducts_name(Var_productname);
                     product.setProduct_description(Var_product_description);
                     product.setPrice(Var_productprice);
-                    product.setCategory_of_prod(category);
+                    product.setCategory_of_prod(var_category);
                     product.setQuantity_product_inside(Var_quantity);
                     WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
                     Toast.makeText(getActivity(),"Modify added.",Toast.LENGTH_LONG).show();
@@ -139,7 +140,7 @@ public class ModifyProductFragment extends Fragment {
                     productsfirestore.setId_product(Var_productid);
                     productsfirestore.setName_product(Var_productname);
                     productsfirestore.setProduct_description(Var_product_description);
-                    productsfirestore.setProduct_of_category(category);
+                    productsfirestore.setProduct_of_category(var_category);
                     productsfirestore.setProduct_price(Var_productprice);
                     productsfirestore.setQuantity(Var_quantity);
 

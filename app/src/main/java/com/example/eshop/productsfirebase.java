@@ -6,7 +6,6 @@ public class productsfirebase {
     private String product_description;
     private String product_of_category;
     private int product_price;
-
     private int quantity;
 
     public int getId_product() {

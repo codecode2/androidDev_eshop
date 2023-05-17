@@ -64,11 +64,6 @@ public class SearchingCustomer extends Fragment implements View.OnClickListener 
         categories_results.add("All Customers");
         for (SupplierDatabase i: categories)
         {
-            String Name=i.getSupplier_name();
-            String nickname=i.getSupplier_nickname();
-            int id=i.getId();
-
-            categories_results.add(id + " "+Name +" "+ nickname);
 
         }
 

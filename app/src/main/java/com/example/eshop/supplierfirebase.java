@@ -3,14 +3,9 @@ package com.example.eshop;
 public class supplierfirebase {
 
      private int id_supplier;
-
      private String name_nickname;
-
      private String name_supplier;
-
-
      private String address;
-
      private String phone;
 
     public int getId_supplier() {

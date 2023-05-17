@@ -7,7 +7,6 @@ public class categories {
 
     private int id_category;
     private int name_category;
-
     private int description_category ;
 
 
