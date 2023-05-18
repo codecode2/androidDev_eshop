@@ -72,29 +72,34 @@ public class InsertCustomerFragment extends Fragment {
 
                 try {
 
+                    if(username.equals("") || email.equals("")|| address.equals("") || phone.equals(""))
+                    {
+                        activity.createNotifications("Insertion Failed", "Empty regions");
+
+                    }else {
+
+                        Customers customer = new Customers();
+                        customer.setCustomer_id(customer_id);
+                        customer.setName(username);
+                        customer.setAddress(address);
+                        customer.setEmail(email);
+                        customer.setPhone(phone);
 
 
+                        WelcomePageActivity.db_firestore.collection("Customers").document(" " + customer_id).
+                                set(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Insertion Success", "The record inserted succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        activity.createNotifications("Insertion Failed", "The record is not inserted");
+                                    }
+                                });
 
-                    Customers customer = new Customers();
-                    customer.setCustomer_id(customer_id);
-                    customer.setName(username);
-                    customer.setAddress(address);
-                    customer.setEmail(email);
-                    customer.setPhone(phone);
-
-
-                    WelcomePageActivity.db_firestore.collection("Customers").document(" "+customer_id).
-                            set(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Insertion Success","The record inserted succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed","The record is not inserted");
-                                }
-                            });
+                    }
 
                 } catch (Exception e) {
                     String message = e.getMessage();

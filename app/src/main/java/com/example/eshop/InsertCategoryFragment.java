@@ -83,14 +83,14 @@ public class InsertCategoryFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed","The record is not inserted");
+
                                 }
                             });
 
-                    Toast.makeText(getActivity(),"Inserted.",Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Insertion Failed","The record is not inserted");
                 }
                 id.setText("");
                 name.setText("");

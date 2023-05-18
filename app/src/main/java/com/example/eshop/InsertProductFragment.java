@@ -157,39 +157,49 @@ public class InsertProductFragment extends Fragment {
 
 
                 try {
-                    ProductsDatabase product = new ProductsDatabase();
-                    product.setId(Var_productid);
-                    product.setProducts_name(Var_productname);
-                    product.setProduct_description(Var_product_description);
-                    product.setPrice(Var_productprice);
-                    product.setCategory_of_prod(category);
-                    product.setQuantity_product_inside(Var_quantity);
-                    WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
+
+                    if(Var_productname.equals("") )
+
+                    {
+                        activity.createNotifications("Insertion Failed","Empty regions");
 
 
-                    productsfirebase productsfirestore=new productsfirebase();
-                    productsfirestore.setId_product(Var_productid);
-                    productsfirestore.setName_product(Var_productname);
-                    productsfirestore.setProduct_description(Var_product_description);
-                    productsfirestore.setProduct_of_category(category);
-                    productsfirestore.setProduct_price(Var_productprice);
-                    productsfirestore.setQuantity(Var_quantity);
-
-                    WelcomePageActivity.db_firestore.collection("productsfirestore").document(" "+Var_productid).
-                            set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Insertion Success","The record inserted succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-
-                                }
-                            });
+                    }else {
 
 
+                        ProductsDatabase product = new ProductsDatabase();
+                        product.setId(Var_productid);
+                        product.setProducts_name(Var_productname);
+                        product.setProduct_description(Var_product_description);
+                        product.setPrice(Var_productprice);
+                        product.setCategory_of_prod(category);
+                        product.setQuantity_product_inside(Var_quantity);
+                        WelcomePageActivity.myAppDatabase.myDao().insertProduct(product);
 
+
+                        productsfirebase productsfirestore = new productsfirebase();
+                        productsfirestore.setId_product(Var_productid);
+                        productsfirestore.setName_product(Var_productname);
+                        productsfirestore.setProduct_description(Var_product_description);
+                        productsfirestore.setProduct_of_category(category);
+                        productsfirestore.setProduct_price(Var_productprice);
+                        productsfirestore.setQuantity(Var_quantity);
+
+                        WelcomePageActivity.db_firestore.collection("productsfirestore").document(" " + Var_productid).
+                                set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Insertion Success", "The record inserted succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+
+
+                    }
 
 
 
@@ -205,7 +215,7 @@ public class InsertProductFragment extends Fragment {
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new InsertProductFragment());
-                fragmentTransaction.addToBackStack(null); // Optional: Add to back stack if needed
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
 

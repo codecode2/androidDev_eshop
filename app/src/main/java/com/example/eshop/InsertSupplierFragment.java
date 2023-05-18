@@ -67,46 +67,56 @@ public class InsertSupplierFragment extends Fragment {
 
 
                 try {
-                    SupplierDatabase supplier = new SupplierDatabase();
-                    supplier.setId(Var_supplier_id);
-                    supplier.setSupplier_name(Var_supplier_name);
-                    supplier.setSupplier_nickname(Var_supplier_nickname);
-                    supplier.setAddress(Var_supplier_address);
-                    supplier.setPhone(Var_supplier_phone);
-                    WelcomePageActivity.myAppDatabase.myDao().insertSupplier(supplier);
+
+                    if(Var_supplier_name.equals("") || (Var_supplier_nickname.equals("")|| (Var_supplier_phone).equals("")))
+
+                    {
+                        activity.createNotifications("Insertion Failed","Empty regions");
 
 
-                    supplierfirebase supplierfire = new supplierfirebase();
-                    supplierfire.setId_supplier(Var_supplier_id);
-                    supplierfire.setName_supplier(Var_supplier_name);
-                    supplierfire.setName_nickname(Var_supplier_nickname);
-                    supplierfire.setAddress(Var_supplier_address);
-                    supplierfire.setPhone(Var_supplier_phone);
+                    }else {
 
-                    WelcomePageActivity.db_firestore.collection("supplierfirebase").document(" "+Var_supplier_id).
-                            set(supplierfire).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Insertion Success","The record inserted succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Insertion Failed","The record is not inserted");
-                                }
-                            });
+                        SupplierDatabase supplier = new SupplierDatabase();
+                        supplier.setId(Var_supplier_id);
+                        supplier.setSupplier_name(Var_supplier_name);
+                        supplier.setSupplier_nickname(Var_supplier_nickname);
+                        supplier.setAddress(Var_supplier_address);
+                        supplier.setPhone(Var_supplier_phone);
+                        WelcomePageActivity.myAppDatabase.myDao().insertSupplier(supplier);
 
 
+                        supplierfirebase supplierfire = new supplierfirebase();
+                        supplierfire.setId_supplier(Var_supplier_id);
+                        supplierfire.setName_supplier(Var_supplier_name);
+                        supplierfire.setName_nickname(Var_supplier_nickname);
+                        supplierfire.setAddress(Var_supplier_address);
+                        supplierfire.setPhone(Var_supplier_phone);
 
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+                        WelcomePageActivity.db_firestore.collection("supplierfirebase").document(" " + Var_supplier_id).
+                                set(supplierfire).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Insertion Success", "The record inserted succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+
+                    }
+
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Insertion Failed","The record is not inserted");
                 }
                 id.setText("");
                 name.setText("");
                 nickname.setText("");
                 address.setText("");
+                phone.setText("");
             }
         });
         return view;

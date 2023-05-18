@@ -72,40 +72,48 @@ public class ModifySupplierFragment extends Fragment {
                     supplier.setSupplier_nickname(Var_supplier_nickname);
                     supplier.setAddress(Var_supplier_address);
                     supplier.setPhone(Var_supplier_phone);
-                    WelcomePageActivity.myAppDatabase.myDao().updateSupplier(supplier);
 
-                    supplierfirebase supplierfire = new supplierfirebase();
-                    supplierfire.setId_supplier(Var_supplier_id);
-                    supplierfire.setName_supplier(Var_supplier_name);
-                    supplierfire.setName_nickname(Var_supplier_nickname);
-                    supplierfire.setAddress(Var_supplier_address);
-                    supplierfire.setPhone(Var_supplier_phone);
+                    if(Var_supplier_name.equals("") || (Var_supplier_nickname.equals("")|| (Var_supplier_phone).equals("")))
 
-                    WelcomePageActivity.db_firestore.collection("supplierfirebase").document(" "+Var_supplier_id).
-                            set(supplierfire).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Modified Success","The record modified succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Modified Failed","The record is not modified");
-                                }
-                            });
+                    {
+                        activity.createNotifications("Modified Failed","Empty regions");
 
 
+                    }else {
+                        WelcomePageActivity.myAppDatabase.myDao().updateSupplier(supplier);
+
+                        supplierfirebase supplierfire = new supplierfirebase();
+                        supplierfire.setId_supplier(Var_supplier_id);
+                        supplierfire.setName_supplier(Var_supplier_name);
+                        supplierfire.setName_nickname(Var_supplier_nickname);
+                        supplierfire.setAddress(Var_supplier_address);
+                        supplierfire.setPhone(Var_supplier_phone);
+
+                        WelcomePageActivity.db_firestore.collection("supplierfirebase").document(" " + Var_supplier_id).
+                                set(supplierfire).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Modified Success", "The record modified succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
 
 
-                    Toast.makeText(getActivity(),"Modified.",Toast.LENGTH_LONG).show();
+                    }
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Modified Failed","The record is not modified");
                 }
                 id.setText("");
                 name.setText("");
                 nickname.setText("");
                 address.setText("");
+                phone.setText("");
             }
         });
         return view;

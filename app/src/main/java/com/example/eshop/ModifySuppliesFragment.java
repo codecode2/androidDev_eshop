@@ -96,14 +96,14 @@ public class ModifySuppliesFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Modified Failed","The record is not modified");
+
                                 }
                             });
 
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Modified Failed","The record is not modified");
                 }
                 id.setText("");
                 product_id_sup.setText("");

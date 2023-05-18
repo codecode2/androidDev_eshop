@@ -84,14 +84,14 @@ public class ModifyCategoryFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Modify Failed","The record is not modified");
+
                                 }
                             });
 
-                    Toast.makeText(getActivity(),"Modified.",Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Modify Failed","The record is not modified");
                 }
                 id.setText("");
                 name.setText("");

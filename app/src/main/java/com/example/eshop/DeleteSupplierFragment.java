@@ -74,16 +74,16 @@ public class DeleteSupplierFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Deletion Failed","The record is not deleted");
+
                                 }
                             });
 
 
 
-                    Toast.makeText(getActivity(),"Deleted.",Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Deletion Failed","The record is not deleted");
                 }
                 id.setText("");
 

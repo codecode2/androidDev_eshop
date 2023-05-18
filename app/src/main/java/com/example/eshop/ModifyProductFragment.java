@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -49,7 +51,9 @@ public class ModifyProductFragment extends Fragment {
         WelcomePageActivity activity = (WelcomePageActivity) getActivity();
 
         List<CategoriesDatabase> cat = WelcomePageActivity.myAppDatabase.myDao().getCategories();
+
         List<String> categories_results = new ArrayList<>();
+        categories_results.add("");
         for (CategoriesDatabase i: cat)
         {
             String category_name=i.getCategory_name();
@@ -126,46 +130,67 @@ public class ModifyProductFragment extends Fragment {
                 }
 
                 try {
-                    ProductsDatabase product = new ProductsDatabase();
-                    product.setId(Var_productid);
-                    product.setProducts_name(Var_productname);
-                    product.setProduct_description(Var_product_description);
-                    product.setPrice(Var_productprice);
-                    product.setCategory_of_prod(var_category);
-                    product.setQuantity_product_inside(Var_quantity);
-                    WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
-                    Toast.makeText(getActivity(),"Modify added.",Toast.LENGTH_LONG).show();
 
-                    productsfirebase productsfirestore=new productsfirebase();
-                    productsfirestore.setId_product(Var_productid);
-                    productsfirestore.setName_product(Var_productname);
-                    productsfirestore.setProduct_description(Var_product_description);
-                    productsfirestore.setProduct_of_category(var_category);
-                    productsfirestore.setProduct_price(Var_productprice);
-                    productsfirestore.setQuantity(Var_quantity);
+                    if(Var_productname.equals("") )
 
-                    WelcomePageActivity.db_firestore.collection("productsfirestore").document(" "+Var_productid).
-                            set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Modify Success","The record modified succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Modify Failed","The record is not modified");
-                                }
-                            });
+                    {
+                        activity.createNotifications("Mofify Failed","Empty regions");
 
+
+                    }else {
+
+
+
+                        ProductsDatabase product = new ProductsDatabase();
+                        product.setId(Var_productid);
+                        product.setProducts_name(Var_productname);
+                        product.setProduct_description(Var_product_description);
+                        product.setPrice(Var_productprice);
+                        product.setCategory_of_prod(var_category);
+                        product.setQuantity_product_inside(Var_quantity);
+                        WelcomePageActivity.myAppDatabase.myDao().updateProducts(product);
+                        Toast.makeText(getActivity(), "Modify added.", Toast.LENGTH_LONG).show();
+
+                        productsfirebase productsfirestore = new productsfirebase();
+                        productsfirestore.setId_product(Var_productid);
+                        productsfirestore.setName_product(Var_productname);
+                        productsfirestore.setProduct_description(Var_product_description);
+                        productsfirestore.setProduct_of_category(var_category);
+                        productsfirestore.setProduct_price(Var_productprice);
+                        productsfirestore.setQuantity(Var_quantity);
+
+                        WelcomePageActivity.db_firestore.collection("productsfirestore").document(" " + Var_productid).
+                                set(productsfirestore).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Modify Success", "The record modified succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+                    }
 
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                    activity.createNotifications("Modify Failed","The record is not modified");
                 }
+
                 id.setText("");
                 name.setText("");
                 description.setText("");
                 price.setText("");
+                quantity.setText("");
+
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new ModifyProductFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
             }
         });
         return view;

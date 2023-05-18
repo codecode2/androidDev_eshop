@@ -57,7 +57,7 @@ public class DeleteSuppliesFragment extends Fragment {
 
 
                     WelcomePageActivity.myAppDatabase.myDao().deleteSupplies(supplies);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {
                     String message = e.getMessage();
                     Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();

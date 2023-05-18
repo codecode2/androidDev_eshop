@@ -89,7 +89,7 @@ public class OrdersCustomerFragment extends Fragment {
 
 
         spinnerCust = view.findViewById(R.id.id_customer_spinner);
-         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results1);
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories_results1);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         spinnerCust.setAdapter(adapter);
 
@@ -138,7 +138,7 @@ public class OrdersCustomerFragment extends Fragment {
                 }
 
 
-             }
+            }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -182,32 +182,32 @@ public class OrdersCustomerFragment extends Fragment {
 
 
 
+        CollectionReference collectionReference3 = WelcomePageActivity.db_firestore.collection("Order_items");
+
+        collectionReference3.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                count = queryDocumentSnapshots.size();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
 
 
 
 
 
-          quantity= view.findViewById(R.id.product_quantity_customer);
+        quantity= view.findViewById(R.id.product_quantity_customer);
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                CollectionReference collectionReference3 = WelcomePageActivity.db_firestore.collection("Order_items");
-
-                collectionReference3.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        count = queryDocumentSnapshots.size();
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
 
 
                 try {
@@ -223,12 +223,6 @@ public class OrdersCustomerFragment extends Fragment {
                     int quantityMinus = Integer.parseInt(partsProduct[7].trim()) - Integer.parseInt(quantity.getText().toString());
 
                     if (quantityMinus >= 0) {
-
-
-
-
-
-
 
 
                         count++;
@@ -278,13 +272,13 @@ public class OrdersCustomerFragment extends Fragment {
                                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
-                                                        // Handle the completion of setting the "sumorders" object in the "Orders" collection
+
                                                     }
                                                 })
                                                 .addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
-                                                        // Handle the failure of setting the "sumorders" object in the "Orders" collection
+
                                                     }
                                                 });
                                     }
@@ -292,7 +286,7 @@ public class OrdersCustomerFragment extends Fragment {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        // Handle the failure of retrieving the items from the "Order_items" collection
+
                                     }
                                 });
 
@@ -326,10 +320,10 @@ public class OrdersCustomerFragment extends Fragment {
 
                         for (ProductsDatabase i: prod)
                         {
-                           product_name=i.getProducts_name();
-                           product_description= i.getProduct_description();
-                           category_of = i.getCategory_of_prod();
-                           price= i.getPrice();
+                            product_name=i.getProducts_name();
+                            product_description= i.getProduct_description();
+                            category_of = i.getCategory_of_prod();
+                            price= i.getPrice();
 
 
 
@@ -353,21 +347,21 @@ public class OrdersCustomerFragment extends Fragment {
 
 
 
-                        }else
-                        {
-                            activity.createNotifications("Insertion Failed", "There is not enough products");
+                    }else
+                    {
+                        activity.createNotifications("Insertion Failed", "There is not enough products");
 
 
-                        }
-
-                    } catch(Exception e){
-                        String message = e.getMessage();
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
                     }
 
-                    quantity.setText("");
-                    spinnerCust.setSelection(0);
-                    spinnerProd.setSelection(0);
+                } catch(Exception e){
+                    String message = e.getMessage();
+                    activity.createNotifications("Insertion Failed", "Something went wrong, try again.");
+                }
+
+                quantity.setText("");
+                spinnerCust.setSelection(0);
+                spinnerProd.setSelection(0);
 
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

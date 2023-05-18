@@ -70,31 +70,37 @@ public class ModifyCustomerFragment extends Fragment {
 
                 try {
 
-                    Customers customer = new Customers();
-                    customer.setCustomer_id(customer_id);
-                    customer.setName(username);
-                    customer.setAddress(address);
-                    customer.setEmail(email);
-                    customer.setPhone(phone);
+                    if(username.equals("") || email.equals("")|| address.equals("") || phone.equals(""))
+                    {
+                        activity.createNotifications("Insertion Failed", "Empty regions");
+
+                    }else {
+                        Customers customer = new Customers();
+                        customer.setCustomer_id(customer_id);
+                        customer.setName(username);
+                        customer.setAddress(address);
+                        customer.setEmail(email);
+                        customer.setPhone(phone);
 
 
-                    WelcomePageActivity.db_firestore.collection("Customers").document(" "+customer_id).
-                            set(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    activity.createNotifications("Modify Success","The record Modified succesfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    activity.createNotifications("Modify Failed","The record is not Modified");
-                                }
-                            });
+                        WelcomePageActivity.db_firestore.collection("Customers").document(" " + customer_id).
+                                set(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        activity.createNotifications("Modify Success", "The record Modified succesfully");
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        activity.createNotifications("Modify Failed", "The record is not Modified");
+                                    }
+                                });
 
-                    Toast.makeText(getActivity(),"Modified.",Toast.LENGTH_LONG).show();
+                    }
+
                 } catch (Exception e) {
                     String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+
                 }
                 id_customer.setText("");
                 customer_username.setText("");
